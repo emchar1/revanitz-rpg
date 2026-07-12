@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://juahbeq2q20j"]
+
+[ext_resource type="PackedScene" uid="uid://dwlge8h16y03h" path="res://assets/models/mineshaft material override.tscn" id="1_spu4l"]
+
+[node name="Node3D" type="Node3D" unique_id=305184573]
+
+[node name="mineshaft" parent="." unique_id=1513073640 instance=ExtResource("1_spu4l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016034126, -4.7683716e-07, 0.0065255165)
