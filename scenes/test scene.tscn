@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dwlge8h16y03h" path="res://assets/models/mineshaft material override.tscn" id="1_spu4l"]
 [ext_resource type="VoxelGIData" uid="uid://dhkej65i5y6du" path="res://scenes/test scene.VoxelGI_data.res" id="3_ethpd"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://assets/brackeys-proto-controller-main/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="4_7xock"]
+[ext_resource type="LightmapGIData" uid="uid://21ifjkq3rtt4" path="res://scenes/test scene.lmbake" id="5_abcde"]
 
 [sub_resource type="Environment" id="Environment_ethpd"]
 background_mode = 1
@@ -15,17 +16,27 @@ ssil_enabled = true
 sdfgi_use_occlusion = true
 sdfgi_read_sky_light = false
 glow_enabled = true
-fog_light_color = Color(0.04028533, 0.048225373, 0.060576573, 1)
-fog_density = 0.0512
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.1221
-volumetric_fog_albedo = Color(0.2, 0.17386667, 0.16800001, 1)
-volumetric_fog_emission = Color(0.038575307, 0.42710078, 0.44611937, 1)
-volumetric_fog_emission_energy = 0.05
+volumetric_fog_density = 0.0
 volumetric_fog_anisotropy = 0.53
-volumetric_fog_length = 32.0
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_8hnv8"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_leyg1"]
+density = 0.3
+albedo = Color(0.8254039, 0.7504061, 0.6153612, 1)
+
+[sub_resource type="FogMaterial" id="FogMaterial_7xock"]
+density = 0.1
+albedo = Color(0.8254039, 0.7504061, 0.6153612, 1)
+
+[sub_resource type="FogMaterial" id="FogMaterial_bjxnh"]
+density = 0.3884
+
+[sub_resource type="FogMaterial" id="FogMaterial_8xw0u"]
+density = 0.1
+height_falloff = 0.41410634
+edge_fade = 1.0928317
 
 [node name="Node3D" type="Node3D" unique_id=305184573]
 
@@ -42,8 +53,10 @@ camera_attributes = SubResource("CameraAttributesPractical_8hnv8")
 data = ExtResource("3_ethpd")
 
 [node name="LightmapGI" type="LightmapGI" parent="." unique_id=2125971004]
-supersampling = true
+bounces = 4
 interior = true
+generate_probes_subdiv = 3
+light_data = ExtResource("5_abcde")
 
 [node name="AreaLight3D" type="AreaLight3D" parent="LightmapGI" unique_id=273281724]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.9497104, 1.8880463, 7.409803)
@@ -125,7 +138,7 @@ distance_fade_enabled = true
 area_size = Vector2(3.7156749, 1)
 
 [node name="AreaLight3D15" type="AreaLight3D" parent="LightmapGI" unique_id=1794925176]
-transform = Transform3D(0.46187496, -0.88694507, -3.87696e-08, 0, -4.371139e-08, 1, -0.88694507, -0.46187496, -2.0189196e-08, 48.219666, 5.6774583, -25.382227)
+transform = Transform3D(0.46187496, -0.88694507, -3.87696e-08, 0, -4.371139e-08, 1, -0.88694507, -0.46187496, -2.0189196e-08, 48.219666, 5.068113, -25.382227)
 light_color = Color(0.62726814, 0.72989935, 0.84204376, 1)
 light_energy = 8.446
 light_bake_mode = 1
@@ -134,7 +147,7 @@ distance_fade_enabled = true
 area_size = Vector2(3.7156749, 1)
 
 [node name="AreaLight3D16" type="AreaLight3D" parent="LightmapGI" unique_id=1961074582]
-transform = Transform3D(-0.5371795, -0.84346795, -3.6869153e-08, 0, -4.371139e-08, 1, -0.84346795, 0.5371795, 2.3480863e-08, 53.646217, 5.236564, -28.648766)
+transform = Transform3D(-0.5371795, -0.84346795, -3.6869153e-08, 0, -4.371139e-08, 1, -0.84346795, 0.5371795, 2.3480863e-08, 53.646217, 4.587707, -28.648766)
 light_color = Color(0.5392259, 0.53677475, 0.38631383, 1)
 light_energy = 8.446
 light_bake_mode = 1
@@ -236,3 +249,33 @@ area_size = Vector2(15.190761, 1)
 
 [node name="ProtoController" parent="." unique_id=158622275 instance=ExtResource("4_7xock")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.489975, -1.2680545, 8.795943)
+
+[node name="S" type="FogVolume" parent="." unique_id=1324308462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.933437, 1.605061, -13.812435)
+size = Vector3(7.129883, 3.3691406, 18.67627)
+material = SubResource("FogMaterial_leyg1")
+
+[node name="S2" type="FogVolume" parent="." unique_id=1231671998]
+transform = Transform3D(0.6361281, 0, 0.77158344, 0, 1, 0, -0.77158344, 0, 0.6361281, 54.102486, 2.976398, -29.781403)
+size = Vector3(16.411133, 6.1118164, 18.67627)
+material = SubResource("FogMaterial_leyg1")
+
+[node name="S3" type="FogVolume" parent="." unique_id=859611511]
+transform = Transform3D(0.6361281, 0, 0.77158344, 0, 1, 0, -0.77158344, 0, 0.6361281, 26.76497, 7.0216312, -43.189)
+size = Vector3(16.411133, 10.92749, 18.67627)
+material = SubResource("FogMaterial_7xock")
+
+[node name="FogVolume" type="FogVolume" parent="." unique_id=1906327074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8545265, 0.92048883, -2.3819714)
+size = Vector3(3.1265259, 4.1103516, 25.594788)
+material = SubResource("FogMaterial_bjxnh")
+
+[node name="FogVolume2" type="FogVolume" parent="." unique_id=702308478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.200611, 13.63345, -55.834396)
+size = Vector3(23.780548, 26.015015, 18.225819)
+material = SubResource("FogMaterial_8xw0u")
+
+[node name="FogVolume3" type="FogVolume" parent="." unique_id=997650637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.200611, 20.706198, -38.112812)
+size = Vector3(23.780548, 12.961151, 22.574335)
+material = SubResource("FogMaterial_8xw0u")
