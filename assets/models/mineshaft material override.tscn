@@ -9,12 +9,13 @@ data = PackedVector3Array(-3.4341998, -12.3742, 0.2233, -3.4341998, 1.6423, -2.5
 
 [node name="mineshaft" unique_id=1513073640 instance=ExtResource("1_uloht")]
 
-[node name="Cube_003" parent="." index="0" unique_id=1904070844]
-surface_material_override/0 = SubResource("StandardMaterial3D_q3qbc")
-surface_material_override/1 = SubResource("StandardMaterial3D_q3qbc")
+[node name="Cube_003" parent="." index="0" unique_id=1835909046]
+material_override = SubResource("StandardMaterial3D_q3qbc")
+cast_shadow = 2
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1520859822]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1733458337]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.149464, 10.687413, -45.361355)
 shape = SubResource("ConcavePolygonShape3D_uloht")
+debug_color = Color(0, 0.6, 0.69803923, 0)

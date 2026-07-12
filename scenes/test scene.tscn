@@ -2,19 +2,30 @@
 
 [ext_resource type="PackedScene" uid="uid://c4272p0doqlue" path="res://scenes/player.tscn" id="1_q3qbc"]
 [ext_resource type="PackedScene" uid="uid://dwlge8h16y03h" path="res://assets/models/mineshaft material override.tscn" id="1_spu4l"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q3qbc"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_0wfyh"]
-sky_material = SubResource("ProceduralSkyMaterial_q3qbc")
+[ext_resource type="VoxelGIData" uid="uid://dhkej65i5y6du" path="res://scenes/test scene.VoxelGI_data.res" id="3_ethpd"]
 
 [sub_resource type="Environment" id="Environment_ethpd"]
-background_mode = 2
-sky = SubResource("Sky_0wfyh")
+background_mode = 1
+background_color = Color(0.14139801, 0.107141785, 0.083659716, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.16091153, 0.14411628, 0.17148939, 1)
 tonemap_mode = 2
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false
 glow_enabled = true
+fog_light_color = Color(0.04028533, 0.048225373, 0.060576573, 1)
+fog_density = 0.0512
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1221
+volumetric_fog_albedo = Color(0.2, 0.17386667, 0.16800001, 1)
+volumetric_fog_emission = Color(0.038575307, 0.42710078, 0.44611937, 1)
+volumetric_fog_emission_energy = 0.05
+volumetric_fog_anisotropy = 0.53
+volumetric_fog_length = 32.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_8hnv8"]
 
 [node name="Node3D" type="Node3D" unique_id=305184573]
 
@@ -22,11 +33,206 @@ glow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.025701, -0.39954543, 9.549486)
 
 [node name="mineshaft" parent="." unique_id=1513073640 instance=ExtResource("1_spu4l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016034126, -4.7683716e-07, 0.0065255165)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010716438, 0.008627415, -0.0069031715)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1647511017]
 environment = SubResource("Environment_ethpd")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1739522359]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+[node name="VoxelGI" type="VoxelGI" parent="." unique_id=1078921776]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.329895, 9.1026, -28.28563)
+size = Vector3(126.05725, 38.2052, 91.318085)
+camera_attributes = SubResource("CameraAttributesPractical_8hnv8")
+data = ExtResource("3_ethpd")
+
+[node name="LightmapGI" type="LightmapGI" parent="." unique_id=2125971004]
+supersampling = true
+interior = true
+
+[node name="AreaLight3D" type="AreaLight3D" parent="LightmapGI" unique_id=273281724]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.9497104, 1.8880463, 7.409803)
+light_bake_mode = 1
 shadow_enabled = true
+distance_fade_enabled = true
+area_size = Vector2(8.1853285, 1)
+
+[node name="AreaLight3D3" type="AreaLight3D" parent="LightmapGI" unique_id=1912347569]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.28181458, 2.695612, -7.8482447)
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_size = Vector2(8.1853285, 1)
+
+[node name="AreaLight3D7" type="AreaLight3D" parent="LightmapGI" unique_id=1726393585]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.2304783, 4.5606694, -21.910332)
+light_color = Color(1, 0.58000004, 0.58000004, 1)
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_size = Vector2(8.1853285, 1)
+
+[node name="AreaLight3D8" type="AreaLight3D" parent="LightmapGI" unique_id=1019097737]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.2304783, 4.5606694, -21.910332)
+light_color = Color(1, 0.58000004, 0.58000004, 1)
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_size = Vector2(3.7156749, 1)
+
+[node name="AreaLight3D9" type="AreaLight3D" parent="LightmapGI" unique_id=1137607024]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 3.3761835, 4.5606694, -19.607283)
+light_color = Color(0.62726814, 0.72989935, 0.84204376, 1)
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_size = Vector2(3.7156749, 1)
+
+[node name="AreaLight3D10" type="AreaLight3D" parent="LightmapGI" unique_id=1676704519]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10.78314, 4.5606694, -19.607283)
+light_color = Color(0.62726814, 0.72989935, 0.84204376, 1)
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_size = Vector2(3.7156749, 1)
+
+[node name="AreaLight3D11" type="AreaLight3D" parent="LightmapGI" unique_id=1939627347]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 16.673857, 4.5606694, -19.607283)
+light_color = Color(0.62726814, 0.72989935, 0.84204376, 1)
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_size = Vector2(3.7156749, 1)
+
+[node name="AreaLight3D12" type="AreaLight3D" parent="LightmapGI" unique_id=1888551809]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 19.880234, 4.5606694, -25.862486)
+light_color = Color(0.62726814, 0.72989935, 0.84204376, 1)
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_size = Vector2(3.7156749, 1)
+
+[node name="AreaLight3D13" type="AreaLight3D" parent="LightmapGI" unique_id=1506783403]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 31.34937, 2.8996968, -16.072004)
+light_color = Color(0.62726814, 0.72989935, 0.84204376, 1)
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_size = Vector2(3.7156749, 1)
+
+[node name="AreaLight3D14" type="AreaLight3D" parent="LightmapGI" unique_id=1444597307]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 45.950832, 5.6774583, -17.520435)
+light_color = Color(0.62726814, 0.72989935, 0.84204376, 1)
+light_energy = 8.446
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_size = Vector2(3.7156749, 1)
+
+[node name="AreaLight3D15" type="AreaLight3D" parent="LightmapGI" unique_id=1794925176]
+transform = Transform3D(0.46187496, -0.88694507, -3.87696e-08, 0, -4.371139e-08, 1, -0.88694507, -0.46187496, -2.0189196e-08, 48.219666, 5.6774583, -25.382227)
+light_color = Color(0.62726814, 0.72989935, 0.84204376, 1)
+light_energy = 8.446
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_size = Vector2(3.7156749, 1)
+
+[node name="AreaLight3D16" type="AreaLight3D" parent="LightmapGI" unique_id=1961074582]
+transform = Transform3D(-0.5371795, -0.84346795, -3.6869153e-08, 0, -4.371139e-08, 1, -0.84346795, 0.5371795, 2.3480863e-08, 53.646217, 5.236564, -28.648766)
+light_color = Color(0.5392259, 0.53677475, 0.38631383, 1)
+light_energy = 8.446
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_range = 9.663
+area_size = Vector2(3.7156749, 1)
+
+[node name="AreaLight3D17" type="AreaLight3D" parent="LightmapGI" unique_id=2096098855]
+transform = Transform3D(-0.5371795, -0.84346795, -3.6869153e-08, 0, -4.371139e-08, 1, -0.84346795, 0.5371795, 2.3480863e-08, 50.34686, 5.520582, -39.650215)
+light_color = Color(0.62726814, 0.72989935, 0.84204376, 1)
+light_energy = 8.446
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_size = Vector2(3.7156749, 1)
+
+[node name="AreaLight3D18" type="AreaLight3D" parent="LightmapGI" unique_id=763678620]
+transform = Transform3D(-0.5371795, -0.84346795, -3.6869153e-08, 0, -4.371139e-08, 1, -0.84346795, 0.5371795, 2.3480863e-08, 29.031, 10.728588, -42.285633)
+light_color = Color(0.62726814, 0.72989935, 0.84204376, 1)
+light_energy = 7.02
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_range = 18.674
+area_attenuation = 2.386
+area_size = Vector2(3.7156749, 1)
+
+[node name="AreaLight3D19" type="AreaLight3D" parent="LightmapGI" unique_id=1819948995]
+transform = Transform3D(-0.5371795, -0.84346795, -3.6869153e-08, 0, -4.371139e-08, 1, -0.84346795, 0.5371795, 2.3480863e-08, 23.66475, 10.728588, -53.124725)
+light_color = Color(0.62726814, 0.72989935, 0.84204376, 1)
+light_energy = 7.02
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_range = 18.674
+area_attenuation = 2.386
+area_size = Vector2(3.7156749, 1)
+
+[node name="AreaLight3D20" type="AreaLight3D" parent="LightmapGI" unique_id=1719544533]
+transform = Transform3D(-0.5371795, -0.84346795, -3.6869153e-08, 0, -4.371139e-08, 1, -0.84346795, 0.5371795, 2.3480863e-08, -3.684493, 11.249653, -61.411472)
+light_color = Color(0.62726814, 0.72989935, 0.84204376, 1)
+light_energy = 7.02
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_range = 18.674
+area_attenuation = 2.386
+area_size = Vector2(3.7156749, 1)
+
+[node name="AreaLight3D21" type="AreaLight3D" parent="LightmapGI" unique_id=363111470]
+transform = Transform3D(-0.5371795, -0.84346795, -3.6869153e-08, 0, -4.371139e-08, 1, -0.84346795, 0.5371795, 2.3480863e-08, -30.285326, 24.256578, -51.25874)
+light_color = Color(0.62726814, 0.72989935, 0.84204376, 1)
+light_energy = 9.871
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_range = 17.198
+area_attenuation = 2.386
+
+[node name="AreaLight3D22" type="AreaLight3D" parent="LightmapGI" unique_id=1187726311]
+transform = Transform3D(-0.5371795, -0.84346795, -3.6869153e-08, 0, -4.371139e-08, 1, -0.84346795, 0.5371795, 2.3480863e-08, -23.891226, 23.221006, -32.867943)
+light_color = Color(0.75211096, 0.8224158, 0.90137804, 1)
+light_energy = 11.772
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_range = 17.198
+area_attenuation = 1.288
+
+[node name="AreaLight3D4" type="AreaLight3D" parent="LightmapGI" unique_id=326681467]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 16.314503, 2.828311, -7.8482447)
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_size = Vector2(8.1853285, 1)
+
+[node name="AreaLight3D5" type="AreaLight3D" parent="LightmapGI" unique_id=217858035]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10.88284, 2.815287, -7.7274175)
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_size = Vector2(2.1764755, 1)
+
+[node name="AreaLight3D6" type="AreaLight3D" parent="LightmapGI" unique_id=1761588353]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10.88284, 1.5100803, 4.646237)
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_size = Vector2(2.1764755, 1)
+
+[node name="AreaLight3D2" type="AreaLight3D" parent="LightmapGI" unique_id=1023181919]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.9497104, 1.0625455, 14.449343)
+light_color = Color(1, 0.64705884, 0.60784316, 1)
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+area_size = Vector2(15.190761, 1)
