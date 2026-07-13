@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://35k3a8b1kmh0"]
+
+[ext_resource type="Script" uid="uid://b024p08veiwrr" path="res://scenes/enemy.gd" id="1_7p1mj"]
+[ext_resource type="PackedScene" uid="uid://q3pcmv4ggn0r" path="res://scenes/hurtbox.tscn" id="2_md0e3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v6m6b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hxfvj"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.8559035, 0.41685262, 0.43806103, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_o3pdq"]
+
+[node name="Enemy" type="CharacterBody3D" unique_id=1563144817]
+script = ExtResource("1_7p1mj")
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=298734702]
+shape = SubResource("CapsuleShape3D_v6m6b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=400340340]
+material_override = SubResource("StandardMaterial3D_hxfvj")
+mesh = SubResource("CapsuleMesh_o3pdq")
+
+[node name="Hurtbox" parent="." unique_id=186594456 instance=ExtResource("2_md0e3")]

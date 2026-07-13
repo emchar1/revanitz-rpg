@@ -52,6 +52,7 @@ var freeflying : bool = false
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
+@onready var animation = $AnimationPlayer
 
 func _ready() -> void:
 	check_input_mappings()
@@ -75,6 +76,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			enable_freefly()
 		else:
 			disable_freefly()
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("input_leftclick"):
+		animation.play("swing")
 
 func _physics_process(delta: float) -> void:
 	# If freeflying, handle freefly and nothing else
