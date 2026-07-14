@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://dj5aj683nwfmv"]
+
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://assets/brackeys-proto-controller-main/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://dh5dcwgor636n" path="res://scripts/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://35k3a8b1kmh0" path="res://scenes/enemy.tscn" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://btml3hqw5dx0f" path="res://scripts/hitbox.gd" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://ck7jo7ldrrl8m" path="res://scenes/dialogue_manager.tscn" id="5_tbgi4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_0wfyh"]
+sky_material = SubResource("ProceduralSkyMaterial_o5qli")
+
+[sub_resource type="Environment" id="Environment_sugp2"]
+background_mode = 2
+sky = SubResource("Sky_0wfyh")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sgp6g"]
+size = Vector2(50, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sgp6g"]
+size = Vector3(50, 0.037, 50)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sugp2"]
+bg_color = Color(0.5132329, 0.51323295, 0.51323277, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyhfs"]
+bg_color = Color(0.7878799, 0.20266616, 0.14144126, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_o6xl0"]
+subpixel_positioning = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v6m6b"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_v6m6b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o3pdq"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9137255, 0.4117647, 0.32156864, 0.69803923)
+
+[node name="Main" type="Node3D" unique_id=713100899]
+script = ExtResource("1_sugp2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=669199481]
+environment = SubResource("Environment_sugp2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1415182601]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Baseplate" type="StaticBody3D" parent="." unique_id=2063204482]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Baseplate" unique_id=81828092]
+mesh = SubResource("PlaneMesh_sgp6g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Baseplate" unique_id=968723010]
+shape = SubResource("BoxShape3D_sgp6g")
+
+[node name="ProtoController" parent="Baseplate" unique_id=158622275 instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0399218, 0.018499374, 4.4372315)
+
+[node name="Enemy" parent="." unique_id=1563144817 instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6822512, 1.0184994, 1.6836243)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1028909728]
+
+[node name="HUD" type="Control" parent="CanvasLayer" unique_id=2129736238]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -506.98322
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.786, 1)
+mouse_filter = 1
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/HUD" unique_id=1853590860]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -83.98656
+offset_top = -60.0
+offset_right = 83.98654
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_sugp2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jyhfs")
+value = 100.0
+show_percentage = false
+
+[node name="DeathScreen" type="Control" parent="CanvasLayer" unique_id=1639704005]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/DeathScreen" unique_id=1526359055]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 649.0
+color = Color(0.39688927, 0.39688927, 0.39688924, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/DeathScreen" unique_id=525434584]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -11.5
+offset_right = 37.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_o6xl0")
+text = "You Died!"
+metadata/_edit_use_anchors_ = true
+
+[node name="TestHitbox" type="Node3D" parent="." unique_id=1998412841]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5589302, 2.0652146, 0)
+
+[node name="Hitbox" type="Area3D" parent="TestHitbox" unique_id=1768095880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4375196, 0)
+script = ExtResource("4_jyhfs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestHitbox/Hitbox" unique_id=1228507880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13596529, 0)
+shape = SubResource("BoxShape3D_v6m6b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestHitbox/Hitbox" unique_id=1563799469]
+mesh = SubResource("BoxMesh_v6m6b")
+surface_material_override/0 = SubResource("StandardMaterial3D_o3pdq")
+
+[node name="DialogueManager" parent="." unique_id=2057228570 instance=ExtResource("5_tbgi4")]
+
+[connection signal="area_entered" from="TestHitbox/Hitbox" to="TestHitbox/Hitbox" method="_on_area_entered"]
+
+[editable path="Baseplate/ProtoController"]
+[editable path="Baseplate/ProtoController/Head/Camera3D/Weapon"]

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://ck7jo7ldrrl8m"]
+
+[ext_resource type="Script" uid="uid://b4gra1acs0e53" path="res://scenes/dialogue_manager.gd" id="1_jbixp"]
+[ext_resource type="PackedScene" uid="uid://dkm7gx6wxpjro" path="res://scenes/next_dialogue.tscn" id="2_516v5"]
+
+[node name="DialogueManager" type="Node3D" unique_id=2057228570]
+script = ExtResource("1_jbixp")
+next_button = ExtResource("2_516v5")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1296720089]
+unique_name_in_owner = true
+layer = 2
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="UI" unique_id=467072298]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -312.0
+offset_top = -198.0
+offset_right = 312.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PanelContainer" unique_id=625974597]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="UI/PanelContainer/VBoxContainer" unique_id=2110904971]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+
+[node name="Dialogue" type="Label" parent="UI/PanelContainer/VBoxContainer" unique_id=452097152]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="Options" type="VBoxContainer" parent="UI/PanelContainer/VBoxContainer" unique_id=1076786960]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
