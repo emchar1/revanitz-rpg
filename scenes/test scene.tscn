@@ -4,6 +4,7 @@
 [ext_resource type="VoxelGIData" uid="uid://dhkej65i5y6du" path="res://scenes/test scene.VoxelGI_data.res" id="3_ethpd"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://assets/brackeys-proto-controller-main/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="4_7xock"]
 [ext_resource type="LightmapGIData" uid="uid://21ifjkq3rtt4" path="res://scenes/test scene.lmbake" id="5_abcde"]
+[ext_resource type="PackedScene" uid="uid://35k3a8b1kmh0" path="res://scenes/enemy.tscn" id="5_h8gbp"]
 
 [sub_resource type="Environment" id="Environment_ethpd"]
 background_mode = 1
@@ -279,3 +280,6 @@ material = SubResource("FogMaterial_8xw0u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.200611, 20.706198, -38.112812)
 size = Vector3(23.780548, 12.961151, 22.574335)
 material = SubResource("FogMaterial_8xw0u")
+
+[node name="Enemy" parent="." unique_id=1563144817 instance=ExtResource("5_h8gbp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.194505, -0.2743802, 7.0360427)

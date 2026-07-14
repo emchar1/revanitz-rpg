@@ -50,14 +50,17 @@ var move_speed : float = 0.0
 var freeflying : bool = false
 
 ## IMPORTANT REFERENCES
+
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
 @onready var animation = $AnimationPlayer
+@onready var hurtbox = $Hurtbox
 
 func _ready() -> void:
 	check_input_mappings()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
+	add_to_group("player")
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -122,6 +125,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Use velocity to actually move
 	move_and_slide()
+
 
 
 ## Rotate us to look around.

@@ -56,7 +56,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_fuo6q"]
 resource_name = "swing"
-length = 0.61
+length = 0.501
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -64,7 +64,7 @@ tracks/0/path = NodePath("Head/Camera3D/Weapon:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.26666668, 0.6),
+"times": PackedFloat32Array(0, 0.06666665, 0.16666666, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0.31681943, 0, -0.7828166), Vector3(0.4685337, 0.05299437, -0.7828166), Vector3(-0.035886064, -0.23862314, -0.7828166), Vector3(0.31681943, 0, -0.7828166)]
@@ -76,7 +76,7 @@ tracks/1/path = NodePath("Head/Camera3D/Weapon:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.26666668, 0.6),
+"times": PackedFloat32Array(0, 0.06666665, 0.16666666, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(3.558442e-09, -0.42979485, -0.26239225), Vector3(-0.9527168, 1.8887835, -1.7730571), Vector3(0, 0, 0)]
@@ -88,7 +88,7 @@ tracks/2/path = NodePath("Head/Camera3D/Weapon/Hitbox:collision_mask")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.16672173, 0.26969692),
+"times": PackedFloat32Array(0.06672171, 0.1696969),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, 0]
@@ -121,6 +121,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Weapon" parent="Head/Camera3D" unique_id=1909220029 instance=ExtResource("2_o4k6q")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 0.99999994, 0.31681943, 0, -0.7828166)
+
+[node name="Hitbox" parent="Head/Camera3D/Weapon" index="2" unique_id=552350395]
+collision_mask = 1
 
 [node name="Hurtbox" parent="." unique_id=186594456 instance=ExtResource("3_fuo6q")]
 
