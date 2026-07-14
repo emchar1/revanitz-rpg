@@ -19,11 +19,12 @@ func play(
 	volume := 0.0,
 	position := Vector3.ZERO,
 	vary_pitch := false
-) -> AudioStreamPlayer3D:
+	) -> void:
 	
+	# guard statement
 	if not AudioData.sounds.has(sound):
 		push_warning("Sound not found: %s" % str(sound))
-		return null
+		return
 	
 	var audio_key = AudioData.sounds[sound]
 	var player = AudioStreamPlayer3D.new()
@@ -60,8 +61,6 @@ func play(
 	
 	add_child(player)
 	player.play()
-	
-	return player
 
 
 # Stops the sound audio.
@@ -87,7 +86,12 @@ func _release_player(player: AudioStreamPlayer3D):
 
 
 # Plays sound of type: Music.
-func play_music(music: AudioData.Music, volume: float = 0.0):
+func play_music(
+	music: AudioData.Music, 
+	volume: float = 0.0,
+	position: Vector3 = Vector3.ZERO,
+	vary_pitch: bool = false
+	):
 	var dict = AudioData.music_map.get(music)
 	
 	if dict == null:
@@ -107,7 +111,7 @@ func play_music(music: AudioData.Music, volume: float = 0.0):
 	var timer = music_timer
 	
 	timer.timeout.connect(func():
-		play(dict["music"], volume)
+		play(dict["music"], volume, position, vary_pitch)
 		timer.queue_free()
 		
 		if music_timer == timer:

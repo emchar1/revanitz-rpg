@@ -3,14 +3,14 @@ extends Node
 # PROPERTIES
 
 enum AudioKey {
-	BGM_MENU,
+	BGM_PLACEHOLDER,
 	
 	BUTTON_TAP_2,
 	BUTTON_TAP_5
 }
 
 enum Music {
-	NONE, BGM_MENU
+	NONE, BGM_PLACEHOLDER
 }
 
 enum Type {
@@ -18,15 +18,15 @@ enum Type {
 }
 
 var music_map := {
-	Music.BGM_MENU: {
-		"music": AudioKey.BGM_MENU
+	Music.BGM_PLACEHOLDER: {
+		"music": AudioKey.BGM_PLACEHOLDER
 	}
 }
 
 var sounds := {
-	AudioKey.BGM_MENU: {
+	AudioKey.BGM_PLACEHOLDER: {
 		"type": Type.MUSIC,
-		"stream": preload("res://assets/sounds/bgm_menu.ogg")
+		"stream": preload("res://assets/sounds/bgm_placeholder.ogg")
 	},
 	AudioKey.BUTTON_TAP_2: {
 		"type": Type.SOUND,
