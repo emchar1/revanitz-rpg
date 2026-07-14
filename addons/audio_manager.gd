@@ -17,7 +17,7 @@ func _ready() -> void:
 func play(
 	sound: AudioData.AudioKey,
 	volume := 0.0,
-	position := Vector2.ZERO,
+	position := Vector3.ZERO,
 	vary_pitch := false
 ) -> AudioStreamPlayer3D:
 	
@@ -39,8 +39,8 @@ func play(
 	if vary_pitch:
 		player.pitch_scale = randf_range(0.8, 1.2)
 	
-	# pan position in world space - INVALID FOR AudioSteamPlayer (not -2D)
-	#player.position = position
+	# pan position in world space
+	player.position = position
 	
 	if audio_key["type"] == AudioData.Type.MUSIC:
 		player.stream.loop = true
