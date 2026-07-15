@@ -6,7 +6,15 @@ enum AudioKey {
 	BGM_PLACEHOLDER,
 	
 	BUTTON_TAP_2,
-	BUTTON_TAP_5
+	BUTTON_TAP_5,
+	DRIP0,
+	DRIP1,
+	DRIP2,
+	DRIP3,
+	DRIP4,
+	WIND0,
+	WIND1,
+	WIND2
 }
 
 enum Music {
@@ -35,5 +43,37 @@ var sounds := {
 	AudioKey.BUTTON_TAP_5: {
 		"type": Type.SOUND,
 		"stream": preload("res://assets/sounds/buttontap5.ogg")
-	}
+	},
+	AudioKey.DRIP0: {
+		"type": Type.SOUND,
+		"stream": preload("res://assets/sounds/mine/water_drip/drip0.ogg")
+	},
+	AudioKey.DRIP1: {
+		"type": Type.SOUND,
+		"stream": preload("res://assets/sounds/mine/water_drip/drip1.ogg")
+	},
+	AudioKey.DRIP2: {
+		"type": Type.SOUND,
+		"stream": preload("res://assets/sounds/mine/water_drip/drip2.ogg")
+	},
+	AudioKey.DRIP3: {
+		"type": Type.SOUND,
+		"stream": preload("res://assets/sounds/mine/water_drip/drip3.ogg")
+	},
+	AudioKey.DRIP4: {
+		"type": Type.SOUND,
+		"stream": preload("res://assets/sounds/mine/water_drip/drip4.ogg")
+	},
+	AudioKey.WIND0: {
+		"type": Type.SOUND,
+		"stream": preload("res://assets/sounds/mine/wind/wind0.ogg")
+	},
+	AudioKey.WIND1: {
+		"type": Type.SOUND,
+		"stream": preload("res://assets/sounds/mine/wind/wind1.ogg")
+	},
+	AudioKey.WIND2: {
+		"type": Type.SOUND,
+		"stream": preload("res://assets/sounds/mine/wind/wind2.ogg")
+	},
 }

@@ -9,7 +9,7 @@ data = PackedVector3Array(-3.4341998, -8.32, 0.1981, -3.4341998, 1.4779999, -1.1
 
 [node name="mineshaft" unique_id=1513073640 instance=ExtResource("1_uloht")]
 
-[node name="Cube_003" parent="." index="0" unique_id=749759580]
+[node name="Cube_003" parent="." index="0" unique_id=93367227]
 material_override = SubResource("StandardMaterial3D_q3qbc")
 cast_shadow = 2
 

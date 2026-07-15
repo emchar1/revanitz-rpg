@@ -27,22 +27,29 @@ func play(
 		return
 	
 	var audio_key = AudioData.sounds[sound]
-	var player = AudioStreamPlayer3D.new()
-	player.stream = audio_key["stream"].duplicate()
+	var player: Variant
 	
 	match audio_key["type"]:
-		AudioData.Type.SOUND: player.bus = "SFX"
-		AudioData.Type.MUSIC: player.bus = "Music"
+		AudioData.Type.SOUND: 
+			player = AudioStreamPlayer3D.new()
+			player.bus = "SFX"
+		AudioData.Type.MUSIC:
+			player = AudioStreamPlayer.new()
+			player.bus = "Music"
 	
+	# the duplicated stream means allow overlapping sounds (I think...)
+	player.stream = audio_key["stream"].duplicate()
 	player.volume_db = volume
+	
+	# pan position in world space
+	if player is AudioStreamPlayer3D:
+		player.position = position
 	
 	# tiny variation in pitch for variety
 	if vary_pitch:
 		player.pitch_scale = randf_range(0.8, 1.2)
 	
-	# pan position in world space
-	player.position = position
-	
+	# set up music to loop, everything else to queue free
 	if audio_key["type"] == AudioData.Type.MUSIC:
 		player.stream.loop = true
 	else:
@@ -80,7 +87,7 @@ func stop(sound: AudioData.AudioKey, fade: float = -1):
 
 
 # Stops and free's the playing player.
-func _release_player(player: AudioStreamPlayer3D):
+func _release_player(player: Variant):
 	player.stop()
 	player.queue_free()
 
@@ -89,7 +96,6 @@ func _release_player(player: AudioStreamPlayer3D):
 func play_music(
 	music: AudioData.Music, 
 	volume: float = 0.0,
-	position: Vector3 = Vector3.ZERO,
 	vary_pitch: bool = false
 	):
 	var dict = AudioData.music_map.get(music)
@@ -111,7 +117,7 @@ func play_music(
 	var timer = music_timer
 	
 	timer.timeout.connect(func():
-		play(dict["music"], volume, position, vary_pitch)
+		play(dict["music"], volume, Vector3.ZERO, vary_pitch)
 		timer.queue_free()
 		
 		if music_timer == timer:
