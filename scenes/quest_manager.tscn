@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bdv0626u3ey01"]
+
+[ext_resource type="Script" uid="uid://dy461sgc1xei1" path="res://scripts/quest_manager.gd" id="1_v4nlo"]
+
+[node name="QuestManager" type="Node3D" unique_id=1169580645]
+script = ExtResource("1_v4nlo")
+
+[node name="Label" type="Label" parent="." unique_id=477941526]
+unique_name_in_owner = true
+offset_top = 84.0
+offset_right = 745.0
+offset_bottom = 326.0

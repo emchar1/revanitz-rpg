@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://bhc8vgwrx2ljh"]
 
-[ext_resource type="Script" uid="uid://ncdlvu4ekb1x" path="res://scripts/dialogue.gd" id="1_g7mhs"]
+[ext_resource type="Script" uid="uid://ncdlvu4ekb1x" path="res://scripts/dialogue.gd" id="1_pfijm"]
 
 [resource]
-script = ExtResource("1_g7mhs")
+script = ExtResource("1_pfijm")
 name = "JakeTDA"
-path_option = "Ok."
+path_option = "nope"
 metadata/_custom_type_script = "uid://ncdlvu4ekb1x"

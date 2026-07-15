@@ -5,6 +5,12 @@ class_name Dialogue
 @export var name : String
 @export var dialogue : String
 
-@export_category("Linked List")
+@export_category("Linking Dialogues")
 @export var path_option : String
-@export var options: Array[Dialogue]
+@export var options : Array[Dialogue]
+@export var close_dialogue : bool
+@export var repeat_dialogue : bool
+@export var quest_check : bool
+
+@export_category("Quest")
+@export var quest : Quest

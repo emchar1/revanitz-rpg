@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://bnck21yt7615h"]
+
+[ext_resource type="Script" uid="uid://ncdlvu4ekb1x" path="res://scripts/dialogue.gd" id="1_3blbo"]
+
+[sub_resource type="Resource" id="Resource_f6cf6"]
+script = ExtResource("1_3blbo")
+name = "JakeTDA"
+path_option = "Thanks"
+close_dialogue = true
+repeat_dialogue = true
+metadata/_custom_type_script = "uid://ncdlvu4ekb1x"
+
+[sub_resource type="Resource" id="Resource_lk8wk"]
+script = ExtResource("1_3blbo")
+name = "JakeTDA"
+dialogue = "Nice"
+path_option = "Yes"
+options = Array[ExtResource("1_3blbo")]([SubResource("Resource_f6cf6")])
+quest_check = true
+metadata/_custom_type_script = "uid://ncdlvu4ekb1x"
+
+[sub_resource type="Resource" id="Resource_rw38i"]
+script = ExtResource("1_3blbo")
+name = "JakeTDA"
+path_option = "nope"
+close_dialogue = true
+repeat_dialogue = true
+metadata/_custom_type_script = "uid://ncdlvu4ekb1x"
+
+[resource]
+script = ExtResource("1_3blbo")
+name = "JakeTDA"
+dialogue = "any ores yet?"
+path_option = "yeahhhh"
+options = Array[ExtResource("1_3blbo")]([SubResource("Resource_lk8wk"), SubResource("Resource_rw38i")])
+close_dialogue = true
+metadata/_custom_type_script = "uid://ncdlvu4ekb1x"

@@ -6,9 +6,10 @@ var dialogue : Dialogue:
 		text = dialogue.path_option
 
 func _on_pressed() -> void:
-	if dialogue.options.size() == 0:
-		
+	if dialogue.close_dialogue == true:
+		DialogueManager.hide_dialogue()
+	if dialogue.repeat_dialogue == true:
 		return
-		
+	if QuestManager.quest.objective != "Complete":
+		return
 	DialogueManager.dialogue = dialogue	
-	
