@@ -9,5 +9,6 @@ title = "Find Ores"
 description = "Bring Ores"
 objective = "Fetch"
 object = "Ore"
+num = 5
 next_dialogue = ExtResource("1_bnbol")
 metadata/_custom_type_script = "uid://drdly1mqyvy78"

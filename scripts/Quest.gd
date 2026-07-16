@@ -6,6 +6,7 @@ class_name Quest
 
 @export_enum("Fetch", "Kill") var objective : String
 @export var object : String
+@export var num : int
 
 @export_enum("Active","Complete") var status : String
 

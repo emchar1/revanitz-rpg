@@ -2,7 +2,6 @@ extends Node3D
 
 @export var next_button : PackedScene
 @export var quest_button : PackedScene
-@export var quest_check : PackedScene
 
 var current_speaker = null
 
@@ -39,7 +38,6 @@ func add_buttons(options):
 		%Options.add_child(button)
 		
 func add_quest(quest):
-	print("hey")
 	if QuestManager.quest == quest:
 		return
 	var button = quest_button.instantiate()
