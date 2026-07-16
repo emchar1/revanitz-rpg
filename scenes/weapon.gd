@@ -18,4 +18,4 @@ func hit(area: Area3D):
 	if area is Hurtbox:
 		area.damage(damage_val)
 		area.hit()
-	print("hit")
+		print("hit")

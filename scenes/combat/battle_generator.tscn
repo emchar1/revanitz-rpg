@@ -52,4 +52,4 @@ shape = SubResource("BoxShape3D_jpsmn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Enemy0" parent="." unique_id=1563144817 instance=ExtResource("2_uvrgi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -10)
