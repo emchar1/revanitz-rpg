@@ -15,6 +15,14 @@ albedo_color = Color(0.8559035, 0.41685262, 0.43806103, 1)
 radius = 0.75
 height = 2.5
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lb7rc"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_u3pco"]
+material = SubResource("StandardMaterial3D_lb7rc")
+radius = 0.125
+height = 0.5
+
 [node name="Enemy0" type="CharacterBody3D" unique_id=1563144817]
 collision_layer = 4
 collision_mask = 15
@@ -37,5 +45,9 @@ collision_mask = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=615768797]
 shape = SubResource("CapsuleShape3D_u3pco")
+
+[node name="Eyes" type="MeshInstance3D" parent="." unique_id=721301370]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.5, 0.5)
+mesh = SubResource("CapsuleMesh_u3pco")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

@@ -15,7 +15,9 @@ func _process(delta: float) -> void:
 
 
 func hit(area: Area3D):
-	if area is Hurtbox:
-		area.damage(damage_val)
-		area.hit()
-		print("hit")
+	if not area is Hurtbox:
+		return
+	
+	area.damage(damage_val)
+	area.hit()
+	print("hit")
