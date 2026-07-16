@@ -259,7 +259,7 @@ distance_fade_enabled = true
 area_size = Vector2(15.190761, 1)
 
 [node name="ProtoController" parent="." unique_id=158622275 instance=ExtResource("4_7xock")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.489975, -1.2680545, 8.795943)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.489975, -1.2680545, 0.9066744)
 
 [node name="S" type="FogVolume" parent="." unique_id=1324308462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.933437, 1.605061, -13.812435)
