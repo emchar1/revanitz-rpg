@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://db74d2eku8kbq"]
 
-[ext_resource type="Script" uid="uid://b024p08veiwrr" path="res://scenes/enemy.gd" id="1_erfbm"]
+[ext_resource type="Script" uid="uid://dgyxtymefpmdp" path="res://scenes/combat/enemy0.gd" id="1_erfbm"]
 [ext_resource type="PackedScene" uid="uid://q3pcmv4ggn0r" path="res://scenes/hurtbox.tscn" id="2_ev8rf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v6m6b"]
@@ -10,6 +10,10 @@ vertex_color_use_as_albedo = true
 albedo_color = Color(0.8559035, 0.41685262, 0.43806103, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_o3pdq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u3pco"]
+radius = 0.75
+height = 2.5
 
 [node name="Enemy0" type="CharacterBody3D" unique_id=1563144817]
 collision_layer = 4
@@ -26,3 +30,12 @@ mesh = SubResource("CapsuleMesh_o3pdq")
 [node name="Hurtbox" parent="." unique_id=186594456 instance=ExtResource("2_ev8rf")]
 collision_layer = 128
 collision_mask = 0
+
+[node name="Hitbox" type="Area3D" parent="." unique_id=531173209]
+collision_layer = 32
+collision_mask = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=615768797]
+shape = SubResource("CapsuleShape3D_u3pco")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
