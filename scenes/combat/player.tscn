@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://q3n3ihxunv3o"]
+
+[ext_resource type="Script" uid="uid://c2d8jkxunlcsb" path="res://scenes/combat/player.gd" id="1_2iox7"]
+[ext_resource type="PackedScene" uid="uid://clwrp7l80b83h" path="res://scenes/weapon.tscn" id="2_gdgbu"]
+[ext_resource type="PackedScene" uid="uid://q3pcmv4ggn0r" path="res://scenes/hurtbox.tscn" id="3_dyv78"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
+albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ucva2"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
+radius = 0.4
+height = 1.799414
+
+[sub_resource type="Animation" id="Animation_o4k6q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon/Hitbox:collision_mask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [128]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapon:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.317, 1.7, -0.783)]
+}
+
+[sub_resource type="Animation" id="Animation_fuo6q"]
+resource_name = "swing"
+length = 0.61
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon/Hitbox:collision_mask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.16672173, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [128, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.26666668, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(3.558442e-09, -0.42979485, -0.26239225), Vector3(-0.9527168, 1.8887835, -1.7730571), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapon:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.26666668, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.317, 1.7, -0.783), Vector3(0.469, 1.753, -0.783), Vector3(-0.036, 1.461, -2.783), Vector3(0.317, 1.7, -0.783)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ne07w"]
+_data = {
+&"RESET": SubResource("Animation_o4k6q"),
+&"swing": SubResource("Animation_fuo6q")
+}
+
+[node name="Player" type="CharacterBody3D" unique_id=158622275]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_2iox7")
+can_sprint = true
+can_freefly = true
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=189469417]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+material_override = SubResource("StandardMaterial3D_iof21")
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_ucva2")
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=1981901484]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90029293, 0)
+shape = SubResource("CapsuleShape3D_iof21")
+
+[node name="Head" type="Node3D" parent="." unique_id=1694986619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1082582953]
+
+[node name="Weapon" parent="." unique_id=1909220029 instance=ExtResource("2_gdgbu")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 0.99999994, 0.317, 1.7, -0.783)
+
+[node name="Hitbox" parent="Weapon" index="0" unique_id=1909220029]
+collision_layer = 16
+collision_mask = 128
+
+[node name="Hurtbox" parent="." unique_id=186594456 instance=ExtResource("3_dyv78")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.9, 0)
+collision_layer = 64
+collision_mask = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1892837735]
+libraries/ = SubResource("AnimationLibrary_ne07w")
+
+[editable path="Weapon"]

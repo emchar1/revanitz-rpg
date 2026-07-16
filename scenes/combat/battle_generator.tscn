@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bsvi8ayevojnx"]
+
+[ext_resource type="PackedScene" uid="uid://q3n3ihxunv3o" path="res://scenes/combat/player.tscn" id="1_wvl1c"]
+[ext_resource type="PackedScene" uid="uid://db74d2eku8kbq" path="res://scenes/combat/enemy0.tscn" id="2_uvrgi"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_761f5"]
+sky_top_color = Color(0.24747589, 0.44744724, 0.9999998, 1)
+sky_horizon_color = Color(0.9620207, 0.46562606, 0.6485123, 1)
+ground_bottom_color = Color(0.20228866, 0.3265607, 1.92523e-07, 1)
+ground_horizon_color = Color(0.9607843, 0.46666667, 0.64705884, 1)
+ground_curve = 0.028284265
+
+[sub_resource type="Sky" id="Sky_krj71"]
+sky_material = SubResource("ProceduralSkyMaterial_761f5")
+
+[sub_resource type="Environment" id="Environment_u3pco"]
+background_mode = 2
+sky = SubResource("Sky_krj71")
+ambient_light_source = 2
+ambient_light_color = Color(0.50790125, 0.58377063, 0.9681987, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lb7rc"]
+albedo_color = Color(0.44303402, 0.33619234, 0.050441697, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u3pco"]
+material = SubResource("StandardMaterial3D_lb7rc")
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jpsmn"]
+size = Vector3(50, 1, 50)
+
+[node name="BattleGenerator" type="Node3D" unique_id=49699114]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=759196958]
+environment = SubResource("Environment_u3pco")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=535686194]
+transform = Transform3D(-0.8660254, -0.4330128, 0.24999997, 0, 0.49999988, 0.8660255, -0.50000006, 0.75000006, -0.4330126, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=546551521]
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1195364268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00030517578, 0.01776123, 0.0040283203)
+mesh = SubResource("BoxMesh_u3pco")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=690065060]
+shape = SubResource("BoxShape3D_jpsmn")
+
+[node name="Player" parent="." unique_id=158622275 instance=ExtResource("1_wvl1c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Enemy0" parent="." unique_id=1563144817 instance=ExtResource("2_uvrgi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
