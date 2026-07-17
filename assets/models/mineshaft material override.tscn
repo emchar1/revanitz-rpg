@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bgk1crxv6xke0" path="res://assets/models/mineshaft.blend" id="1_uloht"]
 [ext_resource type="Texture2D" uid="uid://hlstak6q4hkl" path="res://assets/images/mine_texture.png" id="2_yov2b"]
+[ext_resource type="PackedScene" uid="uid://bulxs236wd1vy" path="res://scenes/wood_support.tscn" id="3_noxnu"]
+[ext_resource type="PackedScene" uid="uid://blfsklar143vu" path="res://scenes/jail.tscn" id="4_imixc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_imixc"]
 albedo_texture = ExtResource("2_yov2b")
@@ -15,7 +17,7 @@ data = PackedVector3Array(-3.4341998, -8.32, 0.1981, -3.4341998, 1.4779999, -1.1
 [node name="mineshaft" unique_id=1513073640 instance=ExtResource("1_uloht")]
 
 [node name="Cube_003" parent="." index="0" unique_id=319146544]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.900185, 11.207663, -52.475063)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.879984, 11.207663, -52.448013)
 material_override = SubResource("StandardMaterial3D_imixc")
 cast_shadow = 2
 
@@ -24,3 +26,108 @@ cast_shadow = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_003/StaticBody3D" index="0" unique_id=1523569973]
 visible = false
 shape = SubResource("ConcavePolygonShape3D_uloht")
+
+[node name="viga2" parent="." index="1" unique_id=797986558 instance=ExtResource("3_noxnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3193908, -0.79487467, -3.6135955)
+
+[node name="viga3" parent="." index="2" unique_id=843784572 instance=ExtResource("3_noxnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3193908, 0.78774965, -13.529736)
+
+[node name="viga17" parent="." index="3" unique_id=553485111 instance=ExtResource("3_noxnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.7872224, 0.78774965, -14.730943)
+
+[node name="viga20" parent="." index="4" unique_id=1377269615 instance=ExtResource("3_noxnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.907862, 0.78774965, -14.730943)
+
+[node name="viga21" parent="." index="5" unique_id=1665758957 instance=ExtResource("3_noxnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.007433, 0.78774965, -14.730943)
+
+[node name="viga22" parent="." index="6" unique_id=332488949 instance=ExtResource("3_noxnu")]
+transform = Transform3D(-0.9929113, 0, 0.11885824, 0, 1, 0, -0.11885824, 0, -0.9929113, 18.641665, 0.78774965, -16.344109)
+
+[node name="viga23" parent="." index="7" unique_id=829745860 instance=ExtResource("3_noxnu")]
+transform = Transform3D(-0.8141606, 0, 0.5806397, 0, 1, 0, -0.5806397, 0, -0.8141606, 20.375216, 0.78774965, -19.906202)
+
+[node name="viga24" parent="." index="8" unique_id=307098154 instance=ExtResource("3_noxnu")]
+transform = Transform3D(-0.3176249, 0, 0.9482164, 0, 1, 0, -0.9482164, 0, -0.3176249, 26.582207, 0.78774965, -22.613392)
+
+[node name="viga25" parent="." index="9" unique_id=1097901688 instance=ExtResource("3_noxnu")]
+transform = Transform3D(-0.3176249, 0, 0.9482164, 0, 1, 0, -0.9482164, 0, -0.3176249, 31.266857, 0.78774965, -23.913126)
+
+[node name="viga27" parent="." index="10" unique_id=752094704 instance=ExtResource("3_noxnu")]
+transform = Transform3D(1.0234661, 0, 3.7737596, 0, 2.615, 0, -1.9981346, 0, 1.9329605, 14.535625, 2.8335452, -64.453636)
+
+[node name="viga28" parent="." index="11" unique_id=665495604 instance=ExtResource("3_noxnu")]
+transform = Transform3D(-0.41095236, 0, 4.1683574, 0, 3.615, 0, -2.2070665, 0, -0.77614164, -0.2810459, 2.8335452, -68.14289)
+
+[node name="viga29" parent="." index="12" unique_id=2128497823 instance=ExtResource("3_noxnu")]
+transform = Transform3D(0.8335105, 0, 3.9369383, 0, 3.615, 0, -2.0845346, 0, 1.5742025, -16.281094, 2.8335452, -70.508194)
+
+[node name="viga26" parent="." index="13" unique_id=982159006 instance=ExtResource("3_noxnu")]
+transform = Transform3D(-0.3176249, 0, 0.9482164, 0, 1, 0, -0.9482164, 0, -0.3176249, 33.75071, 0.96780574, -24.8108)
+
+[node name="viga18" parent="." index="14" unique_id=1734894795 instance=ExtResource("3_noxnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.26644, 0.78774965, -14.730943)
+
+[node name="viga19" parent="." index="15" unique_id=1151771144 instance=ExtResource("3_noxnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.0498085, 0.78774965, -14.730943)
+
+[node name="viga10" parent="." index="16" unique_id=1409509010 instance=ExtResource("3_noxnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.568254, 0.9533571, -13.529736)
+
+[node name="viga14" parent="." index="17" unique_id=1151080654 instance=ExtResource("3_noxnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.528059, 0.78774965, -21.37382)
+
+[node name="viga15" parent="." index="18" unique_id=1033590971 instance=ExtResource("3_noxnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.954525, 2.7510881, -24.05156)
+
+[node name="viga16" parent="." index="19" unique_id=299661244 instance=ExtResource("3_noxnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.954525, 2.7510881, -22.168905)
+
+[node name="viga11" parent="." index="20" unique_id=1887678608 instance=ExtResource("3_noxnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.677406, 0.78774965, -6.5572643)
+
+[node name="viga12" parent="." index="21" unique_id=1564816165 instance=ExtResource("3_noxnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.528059, -0.698465, -0.3178916)
+
+[node name="viga13" parent="." index="22" unique_id=820439259 instance=ExtResource("3_noxnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.528059, -1.6973565, 4.563515)
+
+[node name="viga6" parent="." index="23" unique_id=1122753358 instance=ExtResource("3_noxnu")]
+transform = Transform3D(1.43, 0, 0, 0, 1.13, 0, 0, 0, 1.12, -5.1819534, 0.78774965, -16.521885)
+
+[node name="viga7" parent="." index="24" unique_id=1491474284 instance=ExtResource("3_noxnu")]
+transform = Transform3D(1.43, 0, 0, 0, 1.13, 0, 0, 0, 1.12, -5.1819534, 1.6864967, -20.250196)
+
+[node name="viga8" parent="." index="25" unique_id=1939873203 instance=ExtResource("3_noxnu")]
+transform = Transform3D(1.43, 0, 0, 0, 1.13, 0, 0, 0, 1.12, -5.1819534, 2.5036979, -24.524694)
+
+[node name="viga30" parent="." index="26" unique_id=525485128 instance=ExtResource("3_noxnu")]
+transform = Transform3D(0.0016784334, 0, 1.6399992, 0, 1.155, 0, -1.7549992, 0, 0.0015684506, 1.3291855, 2.5036979, -26.99174)
+
+[node name="viga31" parent="." index="27" unique_id=1727765638 instance=ExtResource("3_noxnu")]
+transform = Transform3D(0.0016784334, 0, 1.6399992, 0, 1.155, 0, -1.7549992, 0, 0.0015684506, 13.636509, 2.5036979, -26.99174)
+
+[node name="viga32" parent="." index="28" unique_id=2026863081 instance=ExtResource("3_noxnu")]
+transform = Transform3D(0.0016784334, 0, 1.6399992, 0, 1.155, 0, -1.7549992, 0, 0.0015684506, -13.087971, 2.5036979, -26.99174)
+
+[node name="viga9" parent="." index="29" unique_id=539769800 instance=ExtResource("3_noxnu")]
+transform = Transform3D(1.43, 0, 0, 0, 1.13, 0, 0, 0, 1.12, -5.1819534, 2.5036979, -29.875807)
+
+[node name="viga4" parent="." index="30" unique_id=43608472 instance=ExtResource("3_noxnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3193908, -0.39618117, -7.103635)
+
+[node name="viga5" parent="." index="31" unique_id=446818224 instance=ExtResource("3_noxnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3193908, 0.4617237, -10.510576)
+
+[node name="jail" parent="." index="32" unique_id=74981285 instance=ExtResource("4_imixc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8031695, -0.40131164, 3.9189353)
+
+[node name="jail2" parent="." index="33" unique_id=1351936592 instance=ExtResource("4_imixc")]
+transform = Transform3D(-0.99995756, 0, 0.009216251, 0, 1, 0, -0.009216251, 0, -0.99995756, 4.522093, -0.40131164, 3.9189353)
+
+[node name="jail3" parent="." index="34" unique_id=1047581345 instance=ExtResource("4_imixc")]
+transform = Transform3D(-1.2649462, 0, 0.009723227, 0, 1.175, 0, -0.011658656, 0, -1.0549551, -5.120319, -0.40131164, 3.9189353)
+
+[node name="jail4" parent="." index="35" unique_id=1808029517 instance=ExtResource("4_imixc")]
+transform = Transform3D(1.1398585, 0, -0.015911754, 0, 0.945, 0, 0.017959801, 0, 1.0098747, -0.0073964, -0.40131164, 3.9189353)

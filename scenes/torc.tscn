@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://crpswhkfmej1o"]
+
+[ext_resource type="PackedScene" uid="uid://cxnll5s4jur66" path="res://assets/models/torch.glb" id="1_pta75"]
+[ext_resource type="Material" uid="uid://diuu05x0n56pr" path="res://materials/mine_atlas.tres" id="2_5txmi"]
+[ext_resource type="Texture2D" uid="uid://c58ri8hjkvgax" path="res://assets/images/flame.png" id="3_5txmi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cd40g"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("3_5txmi")
+albedo_texture_force_srgb = true
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_7rpwy"]
+_data = [Vector2(0.5031447, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ea3p0"]
+curve = SubResource("Curve_7rpwy")
+
+[sub_resource type="Gradient" id="Gradient_5txmi"]
+offsets = PackedFloat32Array(0, 0.31849316, 0.5787671, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.41247672, 0.43907183, 1, 0.3328808, 0.33288068, 0.3328806, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5txmi"]
+gradient = SubResource("Gradient_5txmi")
+
+[sub_resource type="Curve" id="Curve_ea3p0"]
+_data = [Vector2(0, 0.50819665), 0.0, 1.6384072, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ydnqi"]
+curve = SubResource("Curve_ea3p0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h4t55"]
+lifetime_randomness = 0.08
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 0.2
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 1, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = 0.49999776
+use_scale_3d = true
+scale_3d_min = Vector3(0.015, 0.015, 0.015)
+scale_3d_max = Vector3(0.115, 0.115, 0.115)
+scale_min = 0.099999994
+scale_max = 0.45
+scale_curve = SubResource("CurveTexture_ydnqi")
+color = Color(1.685791, 0.9675387, 0.32693547, 1)
+color_ramp = SubResource("GradientTexture1D_5txmi")
+alpha_curve = SubResource("CurveTexture_ea3p0")
+
+[sub_resource type="QuadMesh" id="QuadMesh_4e15o"]
+size = Vector2(0.4, 0.4)
+
+[node name="torch2" unique_id=1908938558 instance=ExtResource("1_pta75")]
+
+[node name="torch" parent="." index="0" unique_id=413633708]
+material_override = ExtResource("2_5txmi")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="torch" index="0" unique_id=1009586910]
+transform = Transform3D(0.033277526, 0, 0.99944615, 0, 1, 0, -0.99944615, 0, 0.033277526, 0.028438646, 0.47167665, -0.0082249455)
+material_override = SubResource("StandardMaterial3D_cd40g")
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_h4t55")
+draw_pass_1 = SubResource("QuadMesh_4e15o")
