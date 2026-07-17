@@ -306,6 +306,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.260841, 6.6770277, -56.11
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="Sounds" unique_id=2016543525]
 stream = SubResource("AudioStreamOggVorbis_44hts")
-volume_db = -17.196
+volume_db = -12.123
 autoplay = true
 bus = &"Music"
