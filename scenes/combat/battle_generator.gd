@@ -38,19 +38,21 @@ func _process(delta: float) -> void:
 
 # SIGNAL FUNCTIONS
 
-# Called when player enters enemy pursuit detection area.
+# Detects if player enters enemy zones.
 func _on_player_detector_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
+		print("area enter")
 		for node in get_tree().get_nodes_in_group("enemy"):
 			var enemy = node as Enemy0
 			if enemy:
-				enemy.pursuit_mode = true
+				enemy.can_pursue = true
 
 
-# Called when player leaves enemy pursuit detection area.
+# Detects if player exits enemy zones.
 func _on_player_detector_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player"):
+		print("area exit")
 		for node in get_tree().get_nodes_in_group("enemy"):
 			var enemy = node as Enemy0
 			if enemy:
-				enemy.pursuit_mode = false
+				enemy.can_pursue = false

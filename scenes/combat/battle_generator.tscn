@@ -83,7 +83,7 @@ size = Vector3(5, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_bid8v"]
 size = Vector3(5, 1, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_lb7rc"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_47650"]
 size = Vector3(30, 4, 30)
 
 [node name="BattleGenerator" type="Node3D" unique_id=49699114]
@@ -211,12 +211,6 @@ speed = 4.0
 direction = Vector3(0.5, 0, 1)
 player_path = NodePath("../../../Player")
 
-[node name="Player" parent="." unique_id=158622275 instance=ExtResource("1_wvl1c")]
-transform = Transform3D(-9.934766e-08, 0, 1, 0, 1, 0, -1, 0, -9.934766e-08, 27, 2, 0)
-
-[node name="OverheadCamera" type="Camera3D" parent="." unique_id=19699815]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 25, 0)
-
 [node name="Corridor" type="Node3D" parent="." unique_id=1854990932]
 
 [node name="Corridor" type="StaticBody3D" parent="Corridor" unique_id=1554338807]
@@ -264,14 +258,20 @@ mesh = SubResource("BoxMesh_vce7v")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 shape = SubResource("BoxShape3D_bid8v")
 
-[node name="PlayerDetector" type="Area3D" parent="." unique_id=837272920]
+[node name="Player" parent="." unique_id=158622275 instance=ExtResource("1_wvl1c")]
+transform = Transform3D(-9.934766e-08, 0, 1, 0, 1, 0, -1, 0, -9.934766e-08, 27, 2, 0)
+
+[node name="OverheadCamera" type="Camera3D" parent="." unique_id=19699815]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 25, 0)
+
+[node name="PlayerDetector" type="Area3D" parent="." unique_id=876873020]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetector" unique_id=200027555]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetector" unique_id=91791524]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-shape = SubResource("BoxShape3D_lb7rc")
-debug_color = Color(0.57279456, 0.13355151, 0.57895, 0.41960785)
+shape = SubResource("BoxShape3D_47650")
+debug_color = Color(0.8578341, 0.22819957, 0.71054876, 0.41960785)
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

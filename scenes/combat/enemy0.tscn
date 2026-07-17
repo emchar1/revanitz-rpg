@@ -23,6 +23,10 @@ material = SubResource("StandardMaterial3D_lb7rc")
 radius = 0.125
 height = 0.5
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jpsmn"]
+radius = 3.0
+height = 10.0
+
 [node name="Enemy0" type="CharacterBody3D" unique_id=1563144817 groups=["enemy"]]
 collision_layer = 4
 collision_mask = 15
@@ -50,6 +54,16 @@ shape = SubResource("CapsuleShape3D_u3pco")
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.5, -0.5)
 mesh = SubResource("CapsuleMesh_u3pco")
 
+[node name="VisionCone" type="Area3D" parent="." unique_id=821455684]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VisionCone" unique_id=1400570017]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -3)
+shape = SubResource("CapsuleShape3D_jpsmn")
+
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=446863670]
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="VisionCone" to="." method="_on_vision_cone_body_entered"]
+[connection signal="body_exited" from="VisionCone" to="." method="_on_vision_cone_body_exited"]

@@ -13,6 +13,7 @@ extends CharacterBody3D
 
 var player: Player = null
 var is_turning: bool = false
+var can_pursue: bool = false
 var pursuit_mode: bool = false
 
 
@@ -20,6 +21,7 @@ var pursuit_mode: bool = false
 
 func _ready() -> void:
 	player = get_node(player_path)
+	eyes.material_override = eyes.get_active_material(0).duplicate()
 
 
 func _physics_process(delta: float) -> void:
@@ -30,8 +32,8 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	if pursuit_mode:
-		eyes.get_active_material(0).albedo_color = Color.RED
+	if can_pursue and pursuit_mode:
+		eyes.material_override.albedo_color = Color.RED
 		
 		# path-finding
 		nav_agent.set_target_position(player.global_position)
@@ -48,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		# turn in direction of movement
 		_face_direction(path_dir)
 	else:
-		eyes.get_active_material(0).albedo_color = Color.GREEN
+		eyes.material_override.albedo_color = Color.GREEN
 		
 		# movement - patrolling
 		velocity.x = speed * direction.x
@@ -59,7 +61,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	# This needs to come AFTER move and slide otherwise enemy bugs out on turn!
-	if not pursuit_mode:
+	if not can_pursue or not pursuit_mode:
 		# turn around if patrolling
 		if is_on_wall() and not is_turning:
 			_turn_around()
@@ -94,8 +96,22 @@ func _turn_around():
 	is_turning = false
 
 
+# SIGNAL FUNCTIONS
+
 func _on_hitbox_area_entered(area: Area3D) -> void:
 	if area is Hurtbox:
 		area.damage(damage_val)
 		area.hit()
 		print("hit")
+
+
+func _on_vision_cone_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		print("enter")
+		pursuit_mode = true
+
+
+func _on_vision_cone_body_exited(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		print("exit")
+		pursuit_mode = false
