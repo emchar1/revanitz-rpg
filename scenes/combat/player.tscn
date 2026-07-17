@@ -100,7 +100,7 @@ _data = {
 &"swing": SubResource("Animation_fuo6q")
 }
 
-[node name="Player" type="CharacterBody3D" unique_id=158622275]
+[node name="Player" type="CharacterBody3D" unique_id=158622275 groups=["player"]]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_2iox7")

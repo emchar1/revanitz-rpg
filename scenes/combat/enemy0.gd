@@ -9,9 +9,11 @@ extends CharacterBody3D
 @export var player_path: NodePath
 
 @onready var nav_agent = $NavigationAgent3D
+@onready var eyes = $Eyes
 
 var player: Player = null
 var is_turning: bool = false
+var pursuit_mode: bool = false
 
 
 # FUNCTIONS
@@ -28,38 +30,48 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	
-	
-	## movement - patrolling
-	#velocity.x = SPEED * direction.x
-	#velocity.z = SPEED * direction.z
-	
-	
-	
-	# path-finding
-	nav_agent.set_target_position(player.global_position)
-	
-	var next_nav_point = nav_agent.get_next_path_position()
-	var path_dir = next_nav_point - global_position
-	
-	path_dir.y = 0
-	path_dir = path_dir.normalized()
-	
-	velocity.x = path_dir.x * speed
-	velocity.z = path_dir.z * speed
-	
-	# turn in direction of movement
-	look_at(player.global_position, Vector3.UP)
+	if pursuit_mode:
+		eyes.get_active_material(0).albedo_color = Color.RED
+		
+		# path-finding
+		nav_agent.set_target_position(player.global_position)
+		
+		var next_nav_point = nav_agent.get_next_path_position()
+		var path_dir = next_nav_point - global_position
+		
+		path_dir.y = 0
+		path_dir = path_dir.normalized()
+		
+		velocity.x = path_dir.x * speed
+		velocity.z = path_dir.z * speed
+		
+		# turn in direction of movement
+		_face_direction(path_dir)
+	else:
+		eyes.get_active_material(0).albedo_color = Color.GREEN
+		
+		# movement - patrolling
+		velocity.x = speed * direction.x
+		velocity.z = speed * direction.z
+		
+		_face_direction(direction)
 	
 	move_and_slide()
 	
-	
-	
-	## turn around if patrolling
-	#if is_on_wall() and not is_turning:
-		#_turn_around()
+	# This needs to come AFTER move and slide otherwise enemy bugs out on turn!
+	if not pursuit_mode:
+		# turn around if patrolling
+		if is_on_wall() and not is_turning:
+			_turn_around()
 
 
+# Right the enemy facing direction
+func _face_direction(dir: Vector3):
+	if dir.length_squared() > 0.0:
+		look_at(global_position + dir, Vector3.UP)
+
+
+# Helper function used for patrolling
 func _turn_around():
 	var last_direction := direction
 	direction = Vector3.ZERO

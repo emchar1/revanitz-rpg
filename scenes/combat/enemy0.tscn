@@ -23,7 +23,7 @@ material = SubResource("StandardMaterial3D_lb7rc")
 radius = 0.125
 height = 0.5
 
-[node name="Enemy0" type="CharacterBody3D" unique_id=1563144817]
+[node name="Enemy0" type="CharacterBody3D" unique_id=1563144817 groups=["enemy"]]
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_erfbm")
