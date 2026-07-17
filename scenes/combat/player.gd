@@ -95,18 +95,18 @@ func _physics_process(delta: float) -> void:
 	if has_gravity:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
-
+	
 	# Apply jumping
 	if can_jump:
 		if Input.is_action_just_pressed(input_jump) and is_on_floor():
 			velocity.y = jump_velocity
-
+	
 	# Modify speed based on sprinting
 	if can_sprint and Input.is_action_pressed(input_sprint):
 			move_speed = sprint_speed
 	else:
 		move_speed = base_speed
-
+	
 	# Apply desired movement to velocity
 	if can_move:
 		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)

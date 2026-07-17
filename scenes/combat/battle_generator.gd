@@ -13,6 +13,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#if not player:
+		#return
+	#
 	#camera.current = player.is_on_floor()
 	#player_camera.current = not player.is_on_floor()
+	
 	pass
