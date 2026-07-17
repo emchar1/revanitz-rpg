@@ -154,10 +154,12 @@ player_path = NodePath("../../../Player")
 
 [node name="Enemy1" parent="NavigationRegion3D/Enemies" unique_id=1104116220 instance=ExtResource("2_uvrgi")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5, 25, 10)
+speed = 3.0
 player_path = NodePath("../../../Player")
 
 [node name="Enemy2" parent="NavigationRegion3D/Enemies" unique_id=210315386 instance=ExtResource("2_uvrgi")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8, 15, 8)
+speed = 4.0
 direction = Vector3(0.5, 0, 1)
 player_path = NodePath("../../../Player")
 

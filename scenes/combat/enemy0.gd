@@ -3,8 +3,7 @@ extends CharacterBody3D
 
 # PROPERTIES
 
-const SPEED = 2.0
-
+@export var speed = 2.0
 @export var damage_val: int = 10
 @export var direction: Vector3 = Vector3(0, 0, 1)
 @export var player_path: NodePath
@@ -46,8 +45,8 @@ func _physics_process(delta: float) -> void:
 	path_dir.y = 0
 	path_dir = path_dir.normalized()
 	
-	velocity.x = path_dir.x * SPEED
-	velocity.z = path_dir.z * SPEED
+	velocity.x = path_dir.x * speed
+	velocity.z = path_dir.z * speed
 	
 	# turn in direction of movement
 	look_at(player.global_position, Vector3.UP)
