@@ -56,9 +56,6 @@ shape = SubResource("BoxShape3D_sgp6g")
 [node name="ProtoController" parent="Baseplate" unique_id=158622275 instance=ExtResource("1_o5qli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0399218, 0.018499374, 4.4372315)
 
-[node name="Hurtbox" parent="Baseplate/ProtoController" index="3" unique_id=186594456]
-hp = null
-
 [node name="Enemy" parent="." unique_id=1563144817 instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6822512, 1.0184994, 1.6836243)
 
