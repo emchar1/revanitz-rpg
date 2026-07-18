@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dkm7gx6wxpjro"]
+
+[ext_resource type="Script" uid="uid://b06dkn1c1h3q5" path="res://scripts/next_dialogue.gd" id="1_8ya7d"]
+
+[node name="NextDialogue" type="Button" unique_id=1087664022]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Hey"
+script = ExtResource("1_8ya7d")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

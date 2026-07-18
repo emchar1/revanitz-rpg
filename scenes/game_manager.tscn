@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://c5f4x2uys3sm0"]
+
+[ext_resource type="Script" uid="uid://b7mtindk5n64h" path="res://game_manager.gd" id="1_hwd4i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwd4i"]
+bg_color = Color(0.5132329, 0.51323295, 0.51323277, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glms7"]
+bg_color = Color(0.7878799, 0.20266616, 0.14144126, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_udu3i"]
+subpixel_positioning = 0
+
+[node name="GameManager" type="Node3D" unique_id=1696514695]
+script = ExtResource("1_hwd4i")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1099519797]
+
+[node name="HUD" type="Control" parent="CanvasLayer" unique_id=1918055113]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -506.98322
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.786, 1)
+mouse_filter = 1
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/HUD" unique_id=1395114901]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -83.98656
+offset_top = -60.0
+offset_right = 83.98654
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_hwd4i")
+theme_override_styles/fill = SubResource("StyleBoxFlat_glms7")
+value = 100.0
+show_percentage = false
+
+[node name="DeathScreen" type="Control" parent="CanvasLayer" unique_id=838034866]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/DeathScreen" unique_id=1091485016]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 649.0
+color = Color(0.39688927, 0.39688927, 0.39688924, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/DeathScreen" unique_id=1970384441]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -11.5
+offset_right = 37.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_udu3i")
+text = "You Died!"
+metadata/_edit_use_anchors_ = true

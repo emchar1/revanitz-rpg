@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://2kxrlm64v7c6"]
+
+[ext_resource type="Script" uid="uid://ncdlvu4ekb1x" path="res://scripts/dialogue.gd" id="1_fwy13"]
+[ext_resource type="Resource" uid="uid://yo8ohxmbax8g" path="res://resources/NPCs/JakeTDATest/Dialogues/4.tres" id="2_fwy13"]
+
+[resource]
+script = ExtResource("1_fwy13")
+name = "JakeTDA"
+dialogue = "Nice"
+path_option = "Yes"
+options = Array[ExtResource("1_fwy13")]([ExtResource("2_fwy13")])
+quest_check = true
+metadata/_custom_type_script = "uid://ncdlvu4ekb1x"

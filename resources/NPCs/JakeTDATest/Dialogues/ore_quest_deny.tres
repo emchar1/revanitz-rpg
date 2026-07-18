@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://0bso71fraus2"]
+
+[ext_resource type="Script" uid="uid://ncdlvu4ekb1x" path="res://scripts/dialogue.gd" id="1_1qktb"]
+
+[resource]
+script = ExtResource("1_1qktb")
+name = "JakeTDA"
+dialogue = "mannn"
+path_option = "nah man"
+close_dialogue = true
+repeat_dialogue = true
+metadata/_custom_type_script = "uid://ncdlvu4ekb1x"

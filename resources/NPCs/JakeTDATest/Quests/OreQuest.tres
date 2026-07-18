@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Quest" format=3 uid="uid://bx8y3y5bb2t1f"]
+
+[ext_resource type="Script" uid="uid://drdly1mqyvy78" path="res://scripts/Quest.gd" id="1_2ab02"]
+[ext_resource type="Resource" uid="uid://6xevv5tow8fk" path="res://resources/NPCs/JakeTDATest/Dialogues/ore_quest_accept.tres" id="1_bnbol"]
+
+[resource]
+script = ExtResource("1_2ab02")
+title = "Find Ores"
+description = "Bring Ores"
+objective = "Fetch"
+object = "Ore"
+num = 5
+next_dialogue = ExtResource("1_bnbol")
+metadata/_custom_type_script = "uid://drdly1mqyvy78"
