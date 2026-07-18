@@ -7,11 +7,10 @@ var quest : Quest:
 	set(value):
 		quest = value
 		%Label.text = value.title
-		
+	
 			
 func mob_slain(enemy):
 	if quest != null:
-		print("eyy")
 		if quest.objective == "Kill" and quest.object == enemy.entity_name:
 			quest.num -= 1
 			if quest.num <= 0:
