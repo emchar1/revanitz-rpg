@@ -100,7 +100,7 @@ _data = {
 &"swing": SubResource("Animation_fuo6q")
 }
 
-[node name="Player" type="CharacterBody3D" unique_id=158622275 groups=["player"]]
+[node name="Player" type="CharacterBody3D" unique_id=158622275]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_2iox7")
@@ -126,7 +126,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.317, 1.7, -0.783)
 
 [node name="Hitbox" parent="Weapon" index="0" unique_id=1909220029]
-collision_layer = 16
 collision_mask = 0
 
 [node name="Hurtbox" parent="." unique_id=186594456 instance=ExtResource("3_dyv78")]

@@ -2,37 +2,23 @@ extends Node3D
 
 # PROPERTIES
 
-@onready var player = $Player
-@onready var player_camera = $Player/Head/Camera3D
-@onready var camera = $OverheadCamera
-@onready var light = $DirectionalLight3D
+@onready var player: Player = get_tree().get_first_node_in_group("player")
+@onready var enemies: Array[Enemy0] = [
+	$NavigationRegion3D/Enemies/Enemy0,
+	$NavigationRegion3D/Enemies/Enemy1,
+	$NavigationRegion3D/Enemies/Enemy2
+]
 
 
 # INIT FUNCTIONS
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	# Setting sun, just because...
-	var tween = create_tween()
-	tween.tween_property(
-		light,
-		"rotation:x",
-		-PI - PI / 16,
-		20
-	)
-	
-	pass # Replace with function body.
+	for enemy in enemies:
+		enemy.player = player
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	#if not player:
-		#return
-	#
-	#camera.current = player.is_on_floor()
-	#player_camera.current = not player.is_on_floor()
-	
+func _process(_delta: float) -> void:
 	pass
 
 
@@ -41,7 +27,6 @@ func _process(delta: float) -> void:
 # Detects if player enters enemy zones.
 func _on_player_detector_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		print("area enter")
 		for node in get_tree().get_nodes_in_group("enemy"):
 			var enemy = node as Enemy0
 			if enemy:
@@ -51,7 +36,6 @@ func _on_player_detector_body_entered(body: Node3D) -> void:
 # Detects if player exits enemy zones.
 func _on_player_detector_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		print("area exit")
 		for node in get_tree().get_nodes_in_group("enemy"):
 			var enemy = node as Enemy0
 			if enemy:

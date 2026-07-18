@@ -6,7 +6,6 @@ extends CharacterBody3D
 @export var speed = 2.0
 @export var damage_val: int = 10
 @export var direction: Vector3 = Vector3(0, 0, 1)
-@export var player_path: NodePath
 
 @onready var nav_agent = $NavigationAgent3D
 @onready var eyes = $Eyes
@@ -20,12 +19,12 @@ var pursuit_mode: bool = false
 # FUNCTIONS
 
 func _ready() -> void:
-	player = get_node(player_path)
 	eyes.material_override = eyes.get_active_material(0).duplicate()
 
 
 func _physics_process(delta: float) -> void:
 	if not player:
+		print("No player, aborting...")
 		return
 	
 	# process gravity
@@ -102,16 +101,13 @@ func _on_hitbox_area_entered(area: Area3D) -> void:
 	if area is Hurtbox:
 		area.damage(damage_val)
 		area.hit()
-		print("hit")
 
 
 func _on_vision_cone_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		print("enter")
 		pursuit_mode = true
 
 
 func _on_vision_cone_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		print("exit")
 		pursuit_mode = false
