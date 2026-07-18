@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://uok6pm6rc2u1"]
+
+[ext_resource type="PackedScene" uid="uid://cnodityqf2vm4" path="res://assets/models/sword.glb" id="1_n355p"]
+[ext_resource type="Material" uid="uid://diuu05x0n56pr" path="res://materials/mine_atlas.tres" id="2_s4ec8"]
+
+[node name="sword2" unique_id=166232768 instance=ExtResource("1_n355p")]
+
+[node name="sword" parent="." index="0" unique_id=1630383187]
+material_override = ExtResource("2_s4ec8")

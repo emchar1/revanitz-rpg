@@ -1,33 +1,35 @@
 [gd_scene format=3 uid="uid://clwrp7l80b83h"]
 
-[ext_resource type="Script" uid="uid://btml3hqw5dx0f" path="res://scenes/weapon.gd" id="1_xasec"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_hxfvj"]
-size = Vector3(0.005859375, 1.0371094, 0.06665039)
-
-[sub_resource type="BoxMesh" id="BoxMesh_v6m6b"]
-size = Vector3(0.0029296875, 1.0397949, 0.068603516)
+[ext_resource type="Script" uid="uid://cthunebny3po1" path="res://scripts/weapon.gd" id="1_xasec"]
+[ext_resource type="Script" uid="uid://btml3hqw5dx0f" path="res://scripts/hitbox.gd" id="2_uxn4k"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_o3pdq"]
 size = Vector3(0.001, 0.17175293, 0.022460938)
 
-[node name="Weapon" type="Node3D" unique_id=105270687]
+[sub_resource type="BoxMesh" id="BoxMesh_v6m6b"]
+size = Vector3(0.0029296875, 1.0397949, 0.068603516)
 
-[node name="Hitbox" type="Area3D" parent="." unique_id=1909220029]
-collision_layer = 16
-collision_mask = 128
+[sub_resource type="BoxShape3D" id="BoxShape3D_uxn4k"]
+size = Vector3(0.005859375, 1.0887451, 0.06665039)
+
+[node name="Weapon" type="Node3D" unique_id=105270687]
 script = ExtResource("1_xasec")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=826003739]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13596529, 0)
-shape = SubResource("BoxShape3D_hxfvj")
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=378680757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46794522, 0)
+mesh = SubResource("BoxMesh_o3pdq")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Hitbox" unique_id=1536404921]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1536404921]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.135477, 0)
 mesh = SubResource("BoxMesh_v6m6b")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hitbox" unique_id=378680757]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46794522, 0)
-mesh = SubResource("BoxMesh_o3pdq")
+[node name="Hitbox" type="Area3D" parent="." unique_id=552350395]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_uxn4k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=1228507880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16178316, 0)
+shape = SubResource("BoxShape3D_uxn4k")
 
 [connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]

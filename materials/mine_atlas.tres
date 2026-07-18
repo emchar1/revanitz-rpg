@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://diuu05x0n56pr"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ajcjt"]
+load_path = "res://.godot/imported/atlas_mine.jpeg-ad8ad33d79fe35d9d0ce918b83def831.s3tc.ctex"
+
+[resource]
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_ajcjt")

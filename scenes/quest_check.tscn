@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c1wm33ihj3hsq"]
+
+[ext_resource type="Script" uid="uid://b3j5bstp6nqyh" path="res://scripts/quest_check.gd" id="1_wmmwh"]
+
+[node name="QuestCheck" type="Button" unique_id=85567949]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_wmmwh")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

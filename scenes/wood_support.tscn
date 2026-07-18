@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bulxs236wd1vy"]
+
+[ext_resource type="PackedScene" uid="uid://cx2d1yby7a8wb" path="res://assets/models/viga.glb" id="1_ngpyc"]
+[ext_resource type="Material" uid="uid://diuu05x0n56pr" path="res://materials/mine_atlas.tres" id="2_ngpyc"]
+
+[node name="viga2" unique_id=797986558 instance=ExtResource("1_ngpyc")]
+
+[node name="viga" parent="." index="0" unique_id=1606866717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0071902275, 1.6066961, 0)
+material_override = ExtResource("2_ngpyc")

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cw0n5n3ujw427"]
+
+[ext_resource type="PackedScene" uid="uid://d4f8re304sg8p" path="res://assets/models/minerNPC.glb" id="1_apsyy"]
+[ext_resource type="Material" uid="uid://bubpwijfhw88d" path="res://materials/miner_NPC.tres" id="2_x8wix"]
+
+[node name="minerNPC" unique_id=497272761 instance=ExtResource("1_apsyy")]
+
+[node name="Skeleton3D" parent="miner_001" parent_id_path=PackedInt32Array(341147518) index="0" unique_id=1155169383]
+bones/0/position = Vector3(1.7090789, 2.254473, -88.15892)
+bones/0/rotation = Quaternion(-0.71835196, -0.026385114, -0.0025828248, 0.6951746)
+bones/1/rotation = Quaternion(-0.023759058, 0.0016540289, -0.0018589065, 0.9997147)
+bones/2/rotation = Quaternion(0.0074350624, -0.011681666, -0.0030865355, 0.9998994)
+bones/3/rotation = Quaternion(0.007487016, -0.01168675, -0.0029436566, 0.9998994)
+bones/4/position = Vector3(-6.7055225e-08, 20.094257, 1.8025784e-07)
+bones/4/rotation = Quaternion(0.03452151, 0.0041830516, 0.0011239268, 0.99939466)
+bones/5/rotation = Quaternion(0.075276725, -0.016174406, 0.037169505, 0.9963384)
+bones/7/position = Vector3(10.490442, 17.25827, -0.21553814)
+bones/7/rotation = Quaternion(-0.5014858, -0.4788894, 0.5875903, -0.41703066)
+bones/8/position = Vector3(-1.99071e-07, 22.360415, -7.0933193e-06)
+bones/8/rotation = Quaternion(0.4476437, 0.1500835, 0.053910077, 0.87987715)
+bones/9/rotation = Quaternion(0.018650789, -0.0011125077, 0.31409907, 0.9492064)
+bones/11/rotation = Quaternion(0.5584864, -0.4445384, 0.5425761, 0.4428201)
+bones/12/position = Vector3(4.3511727e-07, 22.360415, 6.023167e-06)
+bones/12/rotation = Quaternion(0.46591666, -0.1438663, -0.083935164, 0.8690104)
+bones/13/rotation = Quaternion(0.017400429, 0.0006032531, -0.3040547, 0.95249546)
+bones/14/position = Vector3(-2.0265581e-06, 24.079426, -1.445412e-06)
+bones/15/rotation = Quaternion(0.032712918, 0.059807774, 0.9976256, -0.009802083)
+bones/16/rotation = Quaternion(-0.28662696, -0.07862161, 0.0470382, 0.9536514)
+bones/17/rotation = Quaternion(0.5731577, -0.12155332, 0.05159319, 0.8087356)
+bones/18/rotation = Quaternion(0.34799957, -0.19789845, 0.07516842, 0.913281)
+bones/19/position = Vector3(-1.3541269e-06, 9.7781105, 5.5134115e-07)
+bones/20/rotation = Quaternion(-0.12275162, 0.040297486, 0.99078923, 0.040557154)
+bones/21/rotation = Quaternion(-0.17673396, 0.045633994, -0.04964515, 0.98194605)
+bones/22/rotation = Quaternion(0.48726556, 0.0664058, 0.011088252, 0.87065476)
+bones/23/rotation = Quaternion(0.35014904, 0.19616792, -0.0746301, 0.91287684)
+
+[node name="mixamorig_LeftHand" parent="miner_001/Skeleton3D" index="0" unique_id=2055438516]
+transform = Transform3D(0.37278068, 0.14402424, -0.91667414, -0.7946662, 0.5596143, -0.23523968, 0.47910365, 0.8161428, 0.3230645, 48.147675, 10.183174, -106.96571)
+
+[node name="wood" parent="miner_001/Skeleton3D/mixamorig_LeftHand" index="0" unique_id=1333863253]
+material_override = ExtResource("2_x8wix")
+
+[node name="metal" parent="miner_001/Skeleton3D/mixamorig_LeftHand/wood" index="0" unique_id=190152118]
+material_override = ExtResource("2_x8wix")
+
+[node name="miner" parent="miner_001/Skeleton3D" index="1" unique_id=829923446]
+material_override = ExtResource("2_x8wix")
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=145550774]
+autoplay = &"minerIdle"

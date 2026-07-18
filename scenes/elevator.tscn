@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cl5xaccoaadqj"]
+
+[ext_resource type="PackedScene" uid="uid://cvksdj80omr0" path="res://assets/models/elevator.glb" id="1_8lbij"]
+[ext_resource type="Material" uid="uid://diuu05x0n56pr" path="res://materials/mine_atlas.tres" id="2_jmdsd"]
+
+[node name="elevator" unique_id=1245370536 instance=ExtResource("1_8lbij")]
+
+[node name="Cubo_002" parent="." index="0" unique_id=1405379364]
+material_override = ExtResource("2_jmdsd")

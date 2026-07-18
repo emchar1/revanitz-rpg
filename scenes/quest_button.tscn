@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://uxsjbh8hehvy"]
+
+[ext_resource type="Script" uid="uid://wiigkmdr1av1" path="res://scripts/quest_button.gd" id="1_rw38i"]
+
+[node name="QuestButton" type="Button" unique_id=1269187280]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_rw38i")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

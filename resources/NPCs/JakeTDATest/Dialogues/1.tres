@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://cejrl82netavd"]
+
+[ext_resource type="Script" uid="uid://ncdlvu4ekb1x" path="res://scripts/dialogue.gd" id="1_e4f83"]
+[ext_resource type="Resource" uid="uid://0bso71fraus2" path="res://resources/NPCs/JakeTDATest/Dialogues/ore_quest_deny.tres" id="3_s5snk"]
+[ext_resource type="Resource" uid="uid://bx8y3y5bb2t1f" path="res://resources/NPCs/JakeTDATest/Quests/OreQuest.tres" id="4_s5snk"]
+
+[resource]
+script = ExtResource("1_e4f83")
+name = "JakeTDA"
+dialogue = "You wanna money?"
+path_option = "Wazahhhh"
+options = Array[ExtResource("1_e4f83")]([ExtResource("3_s5snk")])
+quest = ExtResource("4_s5snk")
+metadata/_custom_type_script = "uid://ncdlvu4ekb1x"

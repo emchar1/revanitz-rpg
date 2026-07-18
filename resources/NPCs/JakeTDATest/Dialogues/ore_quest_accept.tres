@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://6xevv5tow8fk"]
+
+[ext_resource type="Script" uid="uid://ncdlvu4ekb1x" path="res://scripts/dialogue.gd" id="1_wkbn3"]
+[ext_resource type="Resource" uid="uid://bnck21yt7615h" path="res://resources/NPCs/JakeTDATest/Dialogues/quest_done_end.tres" id="2_wkbn3"]
+
+[resource]
+script = ExtResource("1_wkbn3")
+name = "JakeTDA"
+dialogue = "lets goooo"
+options = Array[ExtResource("1_wkbn3")]([ExtResource("2_wkbn3")])
+metadata/_custom_type_script = "uid://ncdlvu4ekb1x"
