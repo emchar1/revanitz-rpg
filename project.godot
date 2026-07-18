@@ -25,6 +25,10 @@ GameState="*uid://djrtdhwe6j5iw"
 
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+player=""
+
 [input]
 
 input_left={

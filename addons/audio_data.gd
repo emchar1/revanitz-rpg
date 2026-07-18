@@ -4,6 +4,8 @@ extends Node
 
 enum AudioKey {
 	BGM_PLACEHOLDER,
+	BGM_MINES,
+	BGM_SPIDERBOSS,
 	
 	BUTTON_TAP_2,
 	BUTTON_TAP_5,
@@ -18,7 +20,7 @@ enum AudioKey {
 }
 
 enum Music {
-	NONE, BGM_PLACEHOLDER
+	NONE, BGM_PLACEHOLDER, BGM_MINES, BGM_SPIDERBOSS
 }
 
 enum Type {
@@ -28,6 +30,12 @@ enum Type {
 var music_map := {
 	Music.BGM_PLACEHOLDER: {
 		"music": AudioKey.BGM_PLACEHOLDER
+	},
+	Music.BGM_MINES: {
+		"music": AudioKey.BGM_MINES
+	},
+	Music.BGM_SPIDERBOSS: {
+		"music": AudioKey.BGM_SPIDERBOSS
 	}
 }
 
@@ -35,6 +43,14 @@ var sounds := {
 	AudioKey.BGM_PLACEHOLDER: {
 		"type": Type.MUSIC,
 		"stream": preload("res://assets/sounds/bgm_placeholder.ogg")
+	},
+	AudioKey.BGM_MINES: {
+		"type": Type.MUSIC,
+		"stream": preload("res://assets/sounds/mine/taiko.ogg")
+	},
+	AudioKey.BGM_SPIDERBOSS: {
+		"type": Type.MUSIC,
+		"stream": preload("res://assets/sounds/mine/spiderboss.ogg")
 	},
 	AudioKey.BUTTON_TAP_2: {
 		"type": Type.SOUND,

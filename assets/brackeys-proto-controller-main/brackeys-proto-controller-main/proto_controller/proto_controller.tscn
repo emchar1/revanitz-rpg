@@ -51,7 +51,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_fuo6q"]
@@ -88,10 +88,10 @@ tracks/2/path = NodePath("Head/Camera3D/Weapon/Hitbox:collision_mask")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.16672173, 0.26969692),
+"times": PackedFloat32Array(0.16672173, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [1, 0]
+"values": [128, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ne07w"]
@@ -100,7 +100,9 @@ _data = {
 &"swing": SubResource("Animation_fuo6q")
 }
 
-[node name="ProtoController" type="CharacterBody3D" unique_id=158622275]
+[node name="ProtoController" type="CharacterBody3D" unique_id=158622275 groups=["player"]]
+collision_layer = 2
+collision_mask = 13
 script = ExtResource("1_4kvhs")
 can_sprint = true
 
@@ -122,7 +124,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 [node name="Weapon" parent="Head/Camera3D" unique_id=1909220029 instance=ExtResource("2_o4k6q")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 0.99999994, 0.31681943, 0, -0.7828166)
 
+[node name="Hitbox" parent="Head/Camera3D/Weapon" index="0" unique_id=1909220029]
+collision_mask = 0
+
 [node name="Hurtbox" parent="." unique_id=186594456 instance=ExtResource("3_fuo6q")]
+collision_layer = 64
+collision_mask = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1892837735]
 libraries/ = SubResource("AnimationLibrary_ne07w")
