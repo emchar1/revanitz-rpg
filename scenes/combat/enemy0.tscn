@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://db74d2eku8kbq"]
+
+[ext_resource type="Script" uid="uid://dgyxtymefpmdp" path="res://scenes/combat/enemy0.gd" id="1_erfbm"]
+[ext_resource type="PackedScene" uid="uid://q3pcmv4ggn0r" path="res://scenes/hurtbox.tscn" id="2_ev8rf"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v6m6b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hxfvj"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.8559035, 0.41685262, 0.43806103, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_o3pdq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u3pco"]
+radius = 0.75
+height = 2.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lb7rc"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_u3pco"]
+material = SubResource("StandardMaterial3D_lb7rc")
+radius = 0.125
+height = 0.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jpsmn"]
+radius = 3.0
+height = 10.0
+
+[node name="Enemy0" type="CharacterBody3D" unique_id=1563144817 groups=["enemy"]]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_erfbm")
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=298734702]
+shape = SubResource("CapsuleShape3D_v6m6b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=400340340]
+material_override = SubResource("StandardMaterial3D_hxfvj")
+mesh = SubResource("CapsuleMesh_o3pdq")
+
+[node name="Hurtbox" parent="." unique_id=186594456 instance=ExtResource("2_ev8rf")]
+collision_layer = 128
+collision_mask = 0
+
+[node name="Hitbox" type="Area3D" parent="." unique_id=531173209]
+collision_layer = 32
+collision_mask = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=615768797]
+shape = SubResource("CapsuleShape3D_u3pco")
+
+[node name="Eyes" type="MeshInstance3D" parent="." unique_id=721301370]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.5, -0.5)
+mesh = SubResource("CapsuleMesh_u3pco")
+
+[node name="VisionCone" type="Area3D" parent="." unique_id=821455684]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VisionCone" unique_id=1400570017]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -3)
+shape = SubResource("CapsuleShape3D_jpsmn")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=446863670]
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="VisionCone" to="." method="_on_vision_cone_body_entered"]
+[connection signal="body_exited" from="VisionCone" to="." method="_on_vision_cone_body_exited"]
