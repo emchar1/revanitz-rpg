@@ -57,7 +57,7 @@ shape = SubResource("BoxShape3D_sgp6g")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0399218, 0.018499374, 4.4372315)
 collision_layer = 1
 
-[node name="Enemy" parent="." unique_id=1563144817 instance=ExtResource("2_0wfyh")]
+[node name="Enemy" parent="." unique_id=1698863754 instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6822512, 1.0184994, 1.6836243)
 
 [node name="TestHitbox" type="Node3D" parent="." unique_id=1998412841]
