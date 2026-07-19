@@ -55,9 +55,7 @@ shape = SubResource("BoxShape3D_sgp6g")
 
 [node name="ProtoController" parent="Baseplate" unique_id=158622275 instance=ExtResource("1_o5qli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0399218, 0.018499374, 4.4372315)
-
-[node name="Hurtbox" parent="Baseplate/ProtoController" index="3" unique_id=186594456]
-hp = null
+collision_layer = 1
 
 [node name="Enemy" parent="." unique_id=1563144817 instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6822512, 1.0184994, 1.6836243)
@@ -67,6 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5589302, 2.0652146, 0)
 
 [node name="Hitbox" type="Area3D" parent="TestHitbox" unique_id=1768095880]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4375196, 0)
+collision_mask = 3
 script = ExtResource("4_jyhfs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestHitbox/Hitbox" unique_id=1228507880]
@@ -84,6 +83,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.83141994, 1.0185001, -3.17
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 2)
 
 [connection signal="area_entered" from="TestHitbox/Hitbox" to="TestHitbox/Hitbox" method="_on_area_entered"]
-
-[editable path="Baseplate/ProtoController"]
-[editable path="Baseplate/ProtoController/Head/Camera3D/Weapon"]

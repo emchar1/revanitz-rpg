@@ -6,10 +6,10 @@ var entered = false
 func _ready() -> void:
 	area_entered.connect(hit)
 
-func hit(area: Area3D):
-	if not area is Hurtbox:
+func hit(area: Area3D):	
+	if area is not Hurtbox:
+		print('eeeya')
 		return
-	
 	area.damage(damage_val)
-	area.hit()
+	#area.hit()
 	print("hit")

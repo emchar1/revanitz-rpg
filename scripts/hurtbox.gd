@@ -4,7 +4,7 @@ extends Area3D
 signal health_changed(entity : CharacterBody3D, health_val : float)
 signal entity_dead(entity : CharacterBody3D)
 
-@export var hp = 100
+@onready var hp = 100.0
 
 func _ready() -> void:
 	entity_dead.connect(GameManager.death)
@@ -21,4 +21,5 @@ func damage(damage_val: float):
 	print(hp)
 	
 func hit():
-	set_collision_layer_value(1,true)
+	pass
+	#set_collision_layer_value(1,true)
