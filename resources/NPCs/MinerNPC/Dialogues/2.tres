@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_jajcf")
 name = "Miner"
-dialogue = "Ok, there's a gate up ahead that's locked down, probably for a good reason. Find me some parts for a weapon and I can make you one to get outta here."
+dialogue = "Ok, there's a gate up ahead that's locked down, probably for a good reason. Find me some parts for a weapon and I can make you one to break the gate and get outta here."
 path_option = "Yup"
 options = Array[ExtResource("1_jajcf")]([ExtResource("3_t5axy")])
 quest = ExtResource("4_t5axy")

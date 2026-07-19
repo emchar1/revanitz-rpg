@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://bh8q0oijmx85a"]
+
+[ext_resource type="Script" uid="uid://ncdlvu4ekb1x" path="res://scripts/dialogue.gd" id="1_bdycb"]
+
+[sub_resource type="Resource" id="Resource_bdycb"]
+script = ExtResource("1_bdycb")
+name = "Miner"
+path_option = "Thanks"
+close_dialogue = true
+repeat_dialogue = true
+metadata/_custom_type_script = "uid://ncdlvu4ekb1x"
+
+[resource]
+script = ExtResource("1_bdycb")
+name = "Miner"
+dialogue = "There's en elevator you can use to escape, but the big spider's webs are blocking it. Kill the big spider and leave with the elevator. The big spider should be on route to the spider lair. You can use your sword to break down the gate and kill them all."
+path_option = "thanks"
+options = Array[ExtResource("1_bdycb")]([SubResource("Resource_bdycb")])
+metadata/_custom_type_script = "uid://ncdlvu4ekb1x"

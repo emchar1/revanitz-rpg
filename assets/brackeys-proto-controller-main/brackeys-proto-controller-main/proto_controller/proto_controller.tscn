@@ -132,6 +132,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 transform = Transform3D(0.54696393, -0.82883584, -0.11773722, -0.83305484, -0.55277896, 0.021339778, -0.08276979, 0.08640961, -0.99281526, 0.06195198, -0.044701338, -1.2978888)
 collision_layer = 0
 collision_mask = 0
+monitoring = false
 script = ExtResource("2_epxtb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Camera3D/Hitbox" unique_id=1228507880]
@@ -140,13 +141,14 @@ shape = SubResource("BoxShape3D_jwpuy")
 
 [node name="Weapon" type="Node3D" parent="Head/Camera3D" unique_id=1909220029]
 transform = Transform3D(1.0000002, 0, 0, 0, 1.0000001, 0, 0, 0, 0.9999996, 0.31681943, 0, -0.7828166)
+visible = false
 
 [node name="sword2" parent="Head/Camera3D/Weapon" unique_id=166232768 instance=ExtResource("3_ne07w")]
 transform = Transform3D(0.25881907, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.25881907, 0, -0.44943023, 0)
 
 [node name="Hurtbox" type="Area3D" parent="." unique_id=186594456]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0144911, 0)
-collision_layer = 64
+collision_layer = 65
 collision_mask = 0
 script = ExtResource("3_fuo6q")
 

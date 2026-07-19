@@ -23,7 +23,7 @@ class_name Player
 ## Normal speed.
 @export var base_speed : float = 7.0
 ## Speed of jump.
-@export var jump_velocity : float = 4.
+@export var jump_velocity : float = 4.5
 ## How fast do we run?
 @export var sprint_speed : float = 10.0
 ## How fast do we freefly?
@@ -56,6 +56,8 @@ var freeflying : bool = false
 @onready var collider: CollisionShape3D = $Collider
 @onready var animation = $AnimationPlayer
 @onready var hurtbox = $Hurtbox
+@onready var hitbox = $Head/Camera3D/Hitbox
+@onready var weapon = $Head/Camera3D/Weapon
 
 func _ready() -> void:
 	check_input_mappings()

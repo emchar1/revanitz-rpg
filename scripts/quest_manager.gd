@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var label = %Label
 
+signal quest_completed(quest_title : String)
 
 var quest : Quest:
 	set(value):
@@ -29,3 +30,6 @@ func item_get(obj):
 				print(quest.status)
 				%Label.text = ""
 			print(quest.num)
+
+func quest_complete():
+	quest_completed.emit(quest.title)

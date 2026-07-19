@@ -10,10 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://cw0n5n3ujw427" path="res://scenes/miner_npc.tscn" id="8_w62ak"]
 [ext_resource type="PackedScene" uid="uid://bsvi8ayevojnx" path="res://scenes/combat/battle_generator.tscn" id="11_lnp46"]
 [ext_resource type="Script" uid="uid://dt1f6q8rgyrt7" path="res://scripts/npc.gd" id="13_vqehb"]
+[ext_resource type="PackedScene" uid="uid://uok6pm6rc2u1" path="res://scenes/sword.tscn" id="13_woo44"]
 [ext_resource type="Resource" uid="uid://be1hr3gq12lvm" path="res://resources/NPCs/MinerNPC/Dialogues/0.tres" id="14_vqehb"]
 [ext_resource type="PackedScene" uid="uid://67vb4etcn0lh" path="res://scenes/gate.tscn" id="15_vqehb"]
 [ext_resource type="PackedScene" uid="uid://cgngl3qak4m0q" path="res://scenes/interaction.tscn" id="15_x67sd"]
+[ext_resource type="Script" uid="uid://cd3pl8rfbfo7e" path="res://scenes/gate.gd" id="16_tiq5k"]
 [ext_resource type="PackedScene" uid="uid://bj7yjw8fp0pnh" path="res://scenes/interactable_quest_obj.tscn" id="16_woo44"]
+[ext_resource type="Script" uid="uid://c55m0sto1eety" path="res://scripts/hurtbox.gd" id="16_x67sd"]
 
 [sub_resource type="Environment" id="Environment_ethpd"]
 background_mode = 1
@@ -62,11 +65,14 @@ loop = true
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v6m6b"]
 radius = 0.88623047
 
-[sub_resource type="BoxMesh" id="BoxMesh_v6m6b"]
-size = Vector3(0.16308594, 0.18920898, 0.16992188)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_woo44"]
 size = Vector3(1.2490234, 1.2246094, 1.3818359)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v6m6b"]
+size = Vector3(2.1640625, 2.0761719, 0.26953125)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tiq5k"]
+size = Vector3(2.0595703, 1.6074219, 0.19433594)
 
 [node name="Node3D" type="Node3D" unique_id=305184573]
 
@@ -350,25 +356,21 @@ collision_layer = 0
 shape = SubResource("CapsuleShape3D_v6m6b")
 
 [node name="weapon_part1" parent="." unique_id=73403768 instance=ExtResource("16_woo44")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.389941, 0, 4.4181504)
+transform = Transform3D(1, 0, 0, 0, -0.26321295, -0.9647377, 0, 0.9647377, -0.26321295, -12.389941, -0.9566956, 4.1571317)
 obj_name = "weapon_part"
 obj_num = 1
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="weapon_part1" unique_id=710072020]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.111285865, 0)
-mesh = SubResource("BoxMesh_v6m6b")
+[node name="sword2" parent="weapon_part1" unique_id=166232768 instance=ExtResource("13_woo44")]
 
 [node name="weapon_part2" parent="." unique_id=1621072768 instance=ExtResource("16_woo44")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.900122, 2.500197, -14.605158)
+transform = Transform3D(-0.5127635, 0.8585299, 0, 0.08817332, 0.052662186, -0.9947122, -0.85399014, -0.5100521, -0.10270268, 33.0292, 2.569455, -15.275946)
 obj_name = "weapon_part"
 obj_num = 1
 
 [node name="CollisionShape3D" parent="weapon_part2/Interaction" parent_id_path=PackedInt32Array(1621072768, 388063019) index="1" unique_id=642336619]
 shape = SubResource("BoxShape3D_woo44")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="weapon_part2" unique_id=2085224801]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.111285865, 0)
-mesh = SubResource("BoxMesh_v6m6b")
+[node name="sword2" parent="weapon_part2" unique_id=1121888036 instance=ExtResource("13_woo44")]
 
 [node name="torches" type="Node3D" parent="." unique_id=1103721167]
 
@@ -441,8 +443,25 @@ transform = Transform3D(-0.31838012, 0, 0.9479631, 0, 1, 0, -0.9479631, 0, -0.31
 [node name="torch5" parent="torches" unique_id=1997224281 instance=ExtResource("7_e0n0o")]
 transform = Transform3D(0.8972599, 0, 0.44150263, 0, 1, 0, -0.44150263, 0, 0.8972599, 38.4539, 1.3753233, -27.987656)
 
-[node name="gate" parent="." unique_id=74981285 instance=ExtResource("15_vqehb")]
-transform = Transform3D(0.31738448, 0, -0.94829684, 0, 1, 0, 0.94829684, 0, 0.31738448, 31.043613, 1.3754883, -22.729448)
+[node name="Gate" type="CharacterBody3D" parent="." unique_id=2003003869]
+transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 31.0025, 1.3411025, -22.73744)
+script = ExtResource("16_tiq5k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gate" unique_id=1153785539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1967945, 0)
+shape = SubResource("BoxShape3D_v6m6b")
+
+[node name="gate" parent="Gate" unique_id=74981285 instance=ExtResource("15_vqehb")]
+
+[node name="Hurtbox" type="Area3D" parent="Gate" unique_id=886289467]
+collision_layer = 130
+collision_mask = 130
+script = ExtResource("16_x67sd")
+hp = 30.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gate/Hurtbox" unique_id=15063230]
+transform = Transform3D(1.0000006, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, 1.0000006, 0, 1.0184288, 0)
+shape = SubResource("BoxShape3D_tiq5k")
 
 [editable path="weapon_part1"]
 [editable path="weapon_part2"]

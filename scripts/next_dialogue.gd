@@ -1,6 +1,6 @@
 extends Button
 
-signal quest_complete()
+signal quest_complete(quest_name : String)
 
 var dialogue : Dialogue:
 	set(value):
@@ -20,6 +20,6 @@ func _on_pressed() -> void:
 				DialogueManager.hide_dialogue()
 				return
 			else:
-				quest_complete.emit()
+				QuestManager.quest_complete()
 	DialogueManager.dialogue = dialogue	
 	

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dw8tvyfkc7roa"]
+
+[ext_resource type="PackedScene" uid="uid://67vb4etcn0lh" path="res://scenes/gate.tscn" id="1_5mp4m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v6m6b"]
+size = Vector3(2.1640625, 2.0761719, 0.26953125)
+
+[node name="Gate" type="CharacterBody3D" unique_id=2003003869]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1153785539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1967945, 0)
+shape = SubResource("BoxShape3D_v6m6b")
+
+[node name="gate" parent="." unique_id=74981285 instance=ExtResource("1_5mp4m")]
