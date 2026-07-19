@@ -2,7 +2,7 @@ extends Node
 
 # PROPERTIES
 
-var y_axis_multiplier: float = -1.0
+var y_axis_multiplier: float = 1.0
 
 
 # FUNCTIONS

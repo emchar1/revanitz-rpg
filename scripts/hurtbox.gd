@@ -14,12 +14,14 @@ func _process(delta: float) -> void:
 	pass
 
 func damage(damage_val: float):
+	var parent = get_parent()
 	hp -= damage_val
-	health_changed.emit(get_parent(), hp)
+	health_changed.emit(parent, hp)
 	if hp <= 0:
 		get_parent().death()
 	print(hp)
-	
+
+
 func hit():
 	pass
 	#set_collision_layer_value(1,true)

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://d17mv6kolnycf"]
+
+[ext_resource type="Script" uid="uid://bg7luq13ngbbr" path="res://scenes/combat/boss_generator.gd" id="1_5awyd"]
+[ext_resource type="PackedScene" uid="uid://wtbndhfyp0pk" path="res://scenes/combat/enemy_boss.tscn" id="2_5awyd"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_u3pco"]
+vertices = PackedVector3Array(-10.500305, 1, -10.5, -10.500305, 1, 10.5, 10.499695, 1, 10.5, 10.499695, 1, -10.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lb7rc"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u3pco"]
+material = SubResource("StandardMaterial3D_lb7rc")
+size = Vector3(22, 1, 22)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jpsmn"]
+size = Vector3(22, 1, 22)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_47650"]
+size = Vector3(22, 4, 22)
+
+[node name="BossGenerator" type="Node3D" unique_id=49699114]
+script = ExtResource("1_5awyd")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=842504053]
+navigation_mesh = SubResource("NavigationMesh_u3pco")
+
+[node name="Floor" type="StaticBody3D" parent="NavigationRegion3D" unique_id=546551521]
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Floor" unique_id=1195364268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00030517578, 0.01776123, 0.0040283203)
+mesh = SubResource("BoxMesh_u3pco")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor" unique_id=690065060]
+shape = SubResource("BoxShape3D_jpsmn")
+
+[node name="EnemyBoss" parent="." unique_id=1870088730 instance=ExtResource("2_5awyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+direction = Vector3(0, 0, -1)
+
+[node name="PlayerDetector" type="Area3D" parent="." unique_id=876873020]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetector" unique_id=91791524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_47650")
+debug_color = Color(0.8578341, 0.22819957, 0.71054876, 0.41960785)
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

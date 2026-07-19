@@ -1,14 +1,13 @@
-class_name Enemy0
 extends CharacterBody3D
+class_name EnemyBoss
 
 # PROPERTIES
 
-@export var speed = 2.0
-@export var damage_val: int = 10
+@export var speed = 5.0
+@export var damage_val: int = 2
 @export var direction: Vector3 = Vector3(0, 0, 1)
 
 @onready var nav_agent = $NavigationAgent3D
-@onready var eyes = $Eyes
 
 var player: Player = null
 var is_turning: bool = false
@@ -19,7 +18,7 @@ var pursuit_mode: bool = false
 # FUNCTIONS
 
 func _ready() -> void:
-	eyes.material_override = eyes.get_active_material(0).duplicate()
+	pass
 
 
 func _physics_process(delta: float) -> void:
@@ -28,13 +27,12 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	if velocity.x > 0 or velocity.z > 0:
-		$spider/AnimationPlayer.play("walk")
+		$boss/AnimationPlayer.play("walk")
 	# process gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
 	if can_pursue and pursuit_mode:
-		eyes.material_override.albedo_color = Color.RED
 		
 		# path-finding
 		nav_agent.set_target_position(player.global_position)
@@ -51,7 +49,6 @@ func _physics_process(delta: float) -> void:
 		# turn in direction of movement
 		_face_direction(path_dir)
 	else:
-		eyes.material_override.albedo_color = Color.GREEN
 		
 		# movement - patrolling
 		velocity.x = speed * direction.x
@@ -103,25 +100,25 @@ func _turn_around():
 # SIGNAL FUNCTIONS
 
 func _on_hitbox_area_entered(area: Area3D) -> void:
-	if area is Hurtbox:
-		velocity.x = 0
-		velocity.y = 0
-		$spider/AnimationPlayer.play("basicAttack")
-		area.damage(damage_val)
-		area.hit()
+	#if area is Hurtbox:
+	velocity.x = 0
+	velocity.y = 0
+	$boss/AnimationPlayer.play("bossAttack")
+	area.damage(damage_val)
+	area.hit()
+	print("entered hit area")
 	
 func _on_hitbox_area_exited(area: Area3D) -> void:
-	$spider/AnimationPlayer.play("walk")
-		
+	$boss/AnimationPlayer.play("walk")
 
 
 func _on_vision_cone_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		pursuit_mode = true
-		print("enemy pursuite")
+		print("boss pursuit")
 
 
 func _on_vision_cone_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		pursuit_mode = false
-		print("enemy patrol")
+		print("boss patrol")
