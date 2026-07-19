@@ -1,6 +1,6 @@
 extends Area3D
 
-var damage_val = 10
+@export var damage_val = 10
 var entered = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

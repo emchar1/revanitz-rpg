@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://juahbeq2q20j"]
 
 [ext_resource type="PackedScene" uid="uid://dwlge8h16y03h" path="res://assets/models/mineshaft material override.tscn" id="1_spu4l"]
+[ext_resource type="Script" uid="uid://dt1dwxsjvt5p0" path="res://scripts/test_scene.gd" id="1_vqehb"]
 [ext_resource type="VoxelGIData" uid="uid://dhkej65i5y6du" path="res://scenes/test scene.VoxelGI_data.res" id="3_ethpd"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://assets/brackeys-proto-controller-main/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="4_7xock"]
 [ext_resource type="LightmapGIData" uid="uid://21ifjkq3rtt4" path="res://scenes/test scene.lmbake" id="5_abcde"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bxnhbfstho1mq" path="res://assets/sounds/mine/wind_sounds.tscn" id="6_44hts"]
 [ext_resource type="PackedScene" uid="uid://crpswhkfmej1o" path="res://scenes/torc.tscn" id="7_e0n0o"]
 [ext_resource type="PackedScene" uid="uid://cw0n5n3ujw427" path="res://scenes/miner_npc.tscn" id="8_w62ak"]
+[ext_resource type="PackedScene" uid="uid://d17mv6kolnycf" path="res://scenes/combat/boss_generator.tscn" id="9_vqehb"]
 [ext_resource type="PackedScene" uid="uid://bsvi8ayevojnx" path="res://scenes/combat/battle_generator.tscn" id="11_lnp46"]
 [ext_resource type="Script" uid="uid://dt1f6q8rgyrt7" path="res://scripts/npc.gd" id="13_vqehb"]
 [ext_resource type="Resource" uid="uid://be1hr3gq12lvm" path="res://resources/NPCs/MinerNPC/Dialogues/0.tres" id="14_vqehb"]
@@ -68,9 +70,10 @@ size = Vector3(0.16308594, 0.18920898, 0.16992188)
 size = Vector3(1.2490234, 1.2246094, 1.3818359)
 
 [node name="Node3D" type="Node3D" unique_id=305184573]
+script = ExtResource("1_vqehb")
 
 [node name="mineshaft" parent="." unique_id=1513073640 instance=ExtResource("1_spu4l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25151682, 0.310174, 1.3815055)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25588655, 0.31029606, 1.4314704)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1647511017]
 environment = SubResource("Environment_ethpd")
@@ -276,8 +279,9 @@ shadow_enabled = true
 distance_fade_enabled = true
 area_size = Vector2(15.190761, 1)
 
-[node name="ProtoController" parent="." unique_id=158622275 instance=ExtResource("4_7xock")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8269587, 0.11191988, 2.705387)
+[node name="ProtoController" parent="." unique_id=158622275 groups=["player"] instance=ExtResource("4_7xock")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.150463, 0.22644567, 2.515028)
+collision_mask = 13
 
 [node name="S" type="FogVolume" parent="." unique_id=1324308462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.933437, 1.605061, -13.812435)
@@ -331,6 +335,12 @@ bus = &"Music"
 [node name="BattleGenerator" parent="." unique_id=1008706224 instance=ExtResource("11_lnp46")]
 transform = Transform3D(0.9528282, 0, 0.30351016, 0, 1, 0, -0.30351016, 0, 0.9528282, 48.91233, -0.9723091, -36.19093)
 
+[node name="BattleGenerator2" parent="." unique_id=49699114 instance=ExtResource("11_lnp46")]
+transform = Transform3D(0.9581962, 0, 0.28611183, 0, 1, 0, -0.28611183, 0, 0.9581962, 24.251629, 2.624817, -51.50403)
+
+[node name="BossGenerator" parent="." unique_id=1174119042 instance=ExtResource("9_vqehb")]
+transform = Transform3D(-0.999789, 0, 0.020541565, 0, 1, 0, -0.020541565, 0, -0.999789, -28.703648, 2.6362915, -61.376663)
+
 [node name="minerNPC2" parent="." unique_id=213764564 instance=ExtResource("8_w62ak")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08116436, -0.44406822, -1.3768234)
 
@@ -371,7 +381,7 @@ mesh = SubResource("BoxMesh_v6m6b")
 
 [node name="torches" type="Node3D" parent="." unique_id=1103721167]
 
-[node name="torch" parent="torches" unique_id=49699114 instance=ExtResource("7_e0n0o")]
+[node name="torch" parent="torches" unique_id=2100582894 instance=ExtResource("7_e0n0o")]
 transform = Transform3D(-0.24698077, 0, 0.96902037, 0, 1, 0, -0.96902037, 0, -0.24698077, 40.56315, 1.6466577, -35.71038)
 
 [node name="torch6" parent="torches" unique_id=1908938558 instance=ExtResource("7_e0n0o")]

@@ -11,7 +11,7 @@ texture_filter = 0
 
 [node name="spider" unique_id=368986641 instance=ExtResource("1_md22f")]
 
-[node name="Skeleton3D" parent="Esqueleto" parent_id_path=PackedInt32Array(113322798) index="0" unique_id=818458633]
+[node name="Skeleton3D" parent="Esqueleto" parent_id_path=PackedInt32Array(1679248003) index="0" unique_id=1616897482]
 transform = Transform3D(0.275, 0, 0, 0, 0.275, 0, 0, 0, 0.275, 0, 0, 0)
 bones/1/position = Vector3(2.457386e-16, 1.1107205, -1.8209587)
 bones/1/rotation = Quaternion(-0.79414034, 0.0019211639, -0.0019457969, 0.60772824)
@@ -51,8 +51,8 @@ bones/39/rotation = Quaternion(0.8250834, -0.08671081, -0.4652144, -0.30869776)
 bones/40/rotation = Quaternion(0.11662913, -0.68314344, 0.31780884, 0.6470784)
 bones/41/rotation = Quaternion(0.01328578, -0.11148346, 0.00022010505, 0.9936775)
 
-[node name="spider" parent="Esqueleto/Skeleton3D" index="0" unique_id=1236294045]
+[node name="spider" parent="Esqueleto/Skeleton3D" index="0" unique_id=1799247246]
 material_override = SubResource("StandardMaterial3D_41g5t")
 
-[node name="AnimationPlayer" parent="." index="1" unique_id=115544339]
+[node name="AnimationPlayer" parent="." index="1" unique_id=468416837]
 autoplay = &"idle"

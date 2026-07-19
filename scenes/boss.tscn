@@ -9,8 +9,9 @@ albedo_texture = ExtResource("2_jncid")
 texture_filter = 0
 
 [node name="boss" unique_id=368986641 instance=ExtResource("1_neq0i")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Esqueleto" parent_id_path=PackedInt32Array(2050409782) index="0" unique_id=600945900]
+[node name="Skeleton3D" parent="Esqueleto" parent_id_path=PackedInt32Array(1679248003) index="0" unique_id=1616897482]
 bones/1/position = Vector3(1.2569221e-16, 0.5700794, -0.899176)
 bones/1/rotation = Quaternion(-0.7115967, 7.849983e-17, 7.849981e-17, 0.70258814)
 bones/2/position = Vector3(6.619531e-09, -0.9797804, 0.7717254)
@@ -49,8 +50,8 @@ bones/39/rotation = Quaternion(0.86326736, -0.15848394, -0.44590017, -0.17557125
 bones/40/rotation = Quaternion(0.11662908, -0.68314344, 0.31780884, 0.6470784)
 bones/41/rotation = Quaternion(0.0132859005, -0.111483455, 0.00022011995, 0.9936775)
 
-[node name="spider" parent="Esqueleto/Skeleton3D" index="0" unique_id=235328328]
+[node name="spider" parent="Esqueleto/Skeleton3D" index="0" unique_id=1799247246]
 material_override = SubResource("StandardMaterial3D_md22f")
 
-[node name="AnimationPlayer" parent="." index="1" unique_id=478045808]
+[node name="AnimationPlayer" parent="." index="1" unique_id=468416837]
 autoplay = &"idle"
