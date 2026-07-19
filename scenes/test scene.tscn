@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cw0n5n3ujw427" path="res://scenes/miner_npc.tscn" id="8_w62ak"]
 [ext_resource type="PackedScene" uid="uid://cy0pe565mfxgk" path="res://scenes/basic_enemy.tscn" id="9_ttq5c"]
 [ext_resource type="PackedScene" uid="uid://dwk7ucjj6b638" path="res://scenes/boss.tscn" id="10_yhfcb"]
+[ext_resource type="Script" uid="uid://c2xn5xyqmcsw2" path="res://scripts/ragdoll_system.gd" id="11_lnp46"]
 
 [sub_resource type="Environment" id="Environment_ethpd"]
 background_mode = 1
@@ -325,6 +326,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.755, -3.1366668)
 
 [node name="spider2" parent="." unique_id=368986641 instance=ExtResource("9_ttq5c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.845, 0)
+script = ExtResource("11_lnp46")
 
 [node name="boss" parent="." unique_id=424327936 instance=ExtResource("10_yhfcb")]
 transform = Transform3D(0.06364019, 0, 0.9979729, 0, 1, 0, -0.9979729, 0, 0.06364019, -3.1982598, -0.565, 0)
+script = ExtResource("11_lnp46")
