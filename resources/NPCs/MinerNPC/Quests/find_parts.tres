@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Quest" format=3 uid="uid://de7wqxydlht2r"]
+
+[ext_resource type="Script" uid="uid://drdly1mqyvy78" path="res://scripts/Quest.gd" id="1_iqfpf"]
+[ext_resource type="Resource" uid="uid://dvt1hit16xp6s" path="res://resources/NPCs/MinerNPC/Dialogues/filler.tres" id="1_lj7l2"]
+
+[resource]
+script = ExtResource("1_iqfpf")
+title = "Find Weapon Parts"
+description = "Find Weapon Parts"
+objective = "Fetch"
+object = "weapon_part"
+num = 2
+next_dialogue = ExtResource("1_lj7l2")
+metadata/_custom_type_script = "uid://drdly1mqyvy78"

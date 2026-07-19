@@ -9,6 +9,8 @@ var dialogue : Dialogue:
 
 func _on_pressed() -> void:
 	if dialogue.close_dialogue == true or dialogue.options.size() == 0:
+		#ProtoController.mouse_captured = true
+		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		DialogueManager.hide_dialogue()
 	if dialogue.repeat_dialogue == true:
 		return

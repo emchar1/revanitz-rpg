@@ -11,6 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://cy0pe565mfxgk" path="res://scenes/basic_enemy.tscn" id="9_ttq5c"]
 [ext_resource type="PackedScene" uid="uid://dwk7ucjj6b638" path="res://scenes/boss.tscn" id="10_yhfcb"]
 [ext_resource type="PackedScene" uid="uid://bsvi8ayevojnx" path="res://scenes/combat/battle_generator.tscn" id="11_lnp46"]
+[ext_resource type="PackedScene" uid="uid://blwe6qhkt78fv" path="res://scenes/basic_spider.tscn" id="12_ujhr2"]
+[ext_resource type="Script" uid="uid://dt1f6q8rgyrt7" path="res://scripts/npc.gd" id="13_vqehb"]
+[ext_resource type="Resource" uid="uid://be1hr3gq12lvm" path="res://resources/NPCs/MinerNPC/Dialogues/0.tres" id="14_vqehb"]
+[ext_resource type="PackedScene" uid="uid://cgngl3qak4m0q" path="res://scenes/interaction.tscn" id="15_x67sd"]
+[ext_resource type="PackedScene" uid="uid://bj7yjw8fp0pnh" path="res://scenes/interactable_quest_obj.tscn" id="16_woo44"]
 
 [sub_resource type="Environment" id="Environment_ethpd"]
 background_mode = 1
@@ -53,6 +58,17 @@ sampling_rate = 44100.0
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_e0n0o"]
 packet_sequence = SubResource("OggPacketSequence_chgbb")
 loop = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tiq5k"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v6m6b"]
+radius = 0.88623047
+
+[sub_resource type="BoxMesh" id="BoxMesh_v6m6b"]
+size = Vector3(0.16308594, 0.18920898, 0.16992188)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_woo44"]
+size = Vector3(1.2490234, 1.2246094, 1.3818359)
 
 [node name="Node3D" type="Node3D" unique_id=305184573]
 
@@ -351,3 +367,47 @@ transform = Transform3D(0.06364019, 0, 0.9979729, 0, 1, 0, -0.9979729, 0, 0.0636
 
 [node name="BattleGenerator" parent="." unique_id=1008706224 instance=ExtResource("11_lnp46")]
 transform = Transform3D(0.9528282, 0, 0.30351016, 0, 1, 0, -0.30351016, 0, 0.9528282, 48.91233, -0.9723091, -36.19093)
+
+[node name="Enemy0" parent="." unique_id=1563144817 instance=ExtResource("12_ujhr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.80968, 4.5230246, -33.25405)
+
+[node name="minerNPC2" parent="." unique_id=213764564 instance=ExtResource("8_w62ak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.874322, -0.44406822, -1.3768234)
+
+[node name="NPC" type="CharacterBody3D" parent="minerNPC2" unique_id=805000087]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.845665, 0)
+script = ExtResource("13_vqehb")
+dialogue = ExtResource("14_vqehb")
+
+[node name="Collider" type="CollisionShape3D" parent="minerNPC2/NPC" unique_id=1627481379]
+shape = SubResource("CapsuleShape3D_tiq5k")
+
+[node name="Interaction" parent="minerNPC2/NPC" unique_id=388063019 instance=ExtResource("15_x67sd")]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="minerNPC2/NPC/Interaction" unique_id=2125633543]
+shape = SubResource("CapsuleShape3D_v6m6b")
+
+[node name="weapon_part1" parent="." unique_id=73403768 instance=ExtResource("16_woo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.389941, 0, 4.4181504)
+obj_name = "weapon_part"
+obj_num = 1
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="weapon_part1" unique_id=710072020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.111285865, 0)
+mesh = SubResource("BoxMesh_v6m6b")
+
+[node name="weapon_part2" parent="." unique_id=1621072768 instance=ExtResource("16_woo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.900122, 2.500197, -14.605158)
+obj_name = "weapon_part"
+obj_num = 1
+
+[node name="CollisionShape3D" parent="weapon_part2/Interaction" parent_id_path=PackedInt32Array(1621072768, 388063019) index="1" unique_id=642336619]
+shape = SubResource("BoxShape3D_woo44")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="weapon_part2" unique_id=2085224801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.111285865, 0)
+mesh = SubResource("BoxMesh_v6m6b")
+
+[editable path="weapon_part1"]
+[editable path="weapon_part2"]

@@ -7,6 +7,8 @@ var current_speaker = null
 
 var dialogue : Dialogue:
 	set(value):
+		#ProtoController.mouse_captured = false
+		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		dialogue = value
 		%Name.text = value.name
 		%Dialogue.text = value.dialogue

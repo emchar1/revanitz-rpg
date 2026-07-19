@@ -11,5 +11,5 @@ func hit(area: Area3D):
 		print('eeeya')
 		return
 	area.damage(damage_val)
-	#area.hit()
+	area.hit()
 	print("hit")

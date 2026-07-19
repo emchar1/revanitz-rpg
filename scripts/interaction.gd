@@ -17,7 +17,7 @@ func _on_body_exited(body: Node3D) -> void:
 
 
 func interaction():
-	owner.interact()
+	get_parent().interact()
 	print(owner.name + " interacted.")
 	
 func _input(event):

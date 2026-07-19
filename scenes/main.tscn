@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://35k3a8b1kmh0" path="res://scenes/enemy.tscn" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://btml3hqw5dx0f" path="res://scripts/hitbox.gd" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://sdr4y6gc78uu" path="res://scenes/npc.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://bj7yjw8fp0pnh" path="res://scenes/interactable_ore.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bj7yjw8fp0pnh" path="res://scenes/interactable_quest_obj.tscn" id="6_tefeu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

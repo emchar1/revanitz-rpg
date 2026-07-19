@@ -37,8 +37,11 @@ theme_override_font_sizes/font_size = 20
 
 [node name="Dialogue" type="Label" parent="UI/PanelContainer/VBoxContainer" unique_id=452097152]
 unique_name_in_owner = true
+custom_maximum_size = Vector2(600, 150)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 16
+autowrap_mode = 2
 
 [node name="Options" type="VBoxContainer" parent="UI/PanelContainer/VBoxContainer" unique_id=1076786960]
 unique_name_in_owner = true

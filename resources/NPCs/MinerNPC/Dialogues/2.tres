@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://bjcfj2vjm7b16"]
+
+[ext_resource type="Script" uid="uid://ncdlvu4ekb1x" path="res://scripts/dialogue.gd" id="1_jajcf"]
+[ext_resource type="Resource" uid="uid://dqa6u27ey7vp" path="res://resources/NPCs/MinerNPC/Dialogues/quest_denied.tres" id="3_t5axy"]
+[ext_resource type="Resource" uid="uid://de7wqxydlht2r" path="res://resources/NPCs/MinerNPC/Quests/find_parts.tres" id="4_t5axy"]
+
+[resource]
+script = ExtResource("1_jajcf")
+name = "Miner"
+dialogue = "Ok, there's a gate up ahead that's locked down, probably for a good reason. Find me some parts for a weapon and I can make you one to get outta here."
+path_option = "Yup"
+options = Array[ExtResource("1_jajcf")]([ExtResource("3_t5axy")])
+quest = ExtResource("4_t5axy")
+metadata/_custom_type_script = "uid://ncdlvu4ekb1x"

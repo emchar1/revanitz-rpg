@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://dvt1hit16xp6s"]
+
+[ext_resource type="Script" uid="uid://ncdlvu4ekb1x" path="res://scripts/dialogue.gd" id="1_xges3"]
+[ext_resource type="Resource" uid="uid://bbgixnyvenv45" path="res://resources/NPCs/MinerNPC/Dialogues/quest_accepted.tres" id="2_sk4hq"]
+
+[resource]
+script = ExtResource("1_xges3")
+name = "Miner"
+dialogue = "Good luck"
+path_option = "Thanks"
+options = Array[ExtResource("1_xges3")]([ExtResource("2_sk4hq")])
+close_dialogue = true
+metadata/_custom_type_script = "uid://ncdlvu4ekb1x"

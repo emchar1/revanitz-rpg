@@ -1,11 +1,9 @@
 [gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://c54huubla1kjr"]
 
 [ext_resource type="Script" uid="uid://ncdlvu4ekb1x" path="res://scripts/dialogue.gd" id="1_glcnr"]
-[ext_resource type="Resource" uid="uid://cejrl82netavd" path="res://resources/NPCs/JakeTDATest/Dialogues/1.tres" id="2_v48po"]
 
 [resource]
 script = ExtResource("1_glcnr")
 name = "JakeTDA"
 dialogue = "Hey buddy"
-options = Array[ExtResource("1_glcnr")]([ExtResource("2_v48po")])
 metadata/_custom_type_script = "uid://ncdlvu4ekb1x"

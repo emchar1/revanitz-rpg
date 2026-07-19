@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://bbgixnyvenv45"]
+
+[ext_resource type="Script" uid="uid://ncdlvu4ekb1x" path="res://scripts/dialogue.gd" id="1_t66k4"]
+[ext_resource type="Resource" uid="uid://oblrhqobl76x" path="res://resources/NPCs/MinerNPC/Dialogues/got_parts.tres" id="2_sgtc7"]
+[ext_resource type="Resource" uid="uid://ce4lo7oua0y0o" path="res://resources/NPCs/MinerNPC/Dialogues/no_parts.tres" id="3_wj4b8"]
+
+[resource]
+script = ExtResource("1_t66k4")
+name = "Miner"
+dialogue = "Did you find it yet?"
+path_option = "Thanks"
+options = Array[ExtResource("1_t66k4")]([ExtResource("2_sgtc7"), ExtResource("3_wj4b8")])
+close_dialogue = true
+metadata/_custom_type_script = "uid://ncdlvu4ekb1x"

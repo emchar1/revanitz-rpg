@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://blwe6qhkt78fv"]
+
+[ext_resource type="PackedScene" uid="uid://db74d2eku8kbq" path="res://scenes/combat/enemy0.tscn" id="1_norgv"]
+[ext_resource type="PackedScene" uid="uid://cy0pe565mfxgk" path="res://scenes/basic_enemy.tscn" id="2_mit1k"]
+
+[node name="Enemy0" unique_id=1563144817 instance=ExtResource("1_norgv")]
+
+[node name="spider" parent="." index="7" unique_id=368986641 instance=ExtResource("2_mit1k")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.8671087, 0)
+
+[editable path="Hurtbox"]

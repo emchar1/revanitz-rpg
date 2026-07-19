@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://be1hr3gq12lvm"]
+
+[ext_resource type="Script" uid="uid://ncdlvu4ekb1x" path="res://scripts/dialogue.gd" id="1_t05rv"]
+[ext_resource type="Resource" uid="uid://c7i3mrai5ufmm" path="res://resources/NPCs/MinerNPC/Dialogues/1.tres" id="2_y8sht"]
+
+[resource]
+script = ExtResource("1_t05rv")
+name = "Miner"
+dialogue = "Hey you."
+options = Array[ExtResource("1_t05rv")]([ExtResource("2_y8sht")])
+metadata/_custom_type_script = "uid://ncdlvu4ekb1x"

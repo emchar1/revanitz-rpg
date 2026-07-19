@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://oblrhqobl76x"]
+
+[ext_resource type="Script" uid="uid://ncdlvu4ekb1x" path="res://scripts/dialogue.gd" id="1_jqdvl"]
+
+[sub_resource type="Resource" id="Resource_woo44"]
+script = ExtResource("1_jqdvl")
+name = "Miner"
+path_option = "You too"
+close_dialogue = true
+metadata/_custom_type_script = "uid://ncdlvu4ekb1x"
+
+[resource]
+script = ExtResource("1_jqdvl")
+name = "Miner"
+dialogue = "Attah boy, good luck"
+path_option = "Got it"
+options = Array[ExtResource("1_jqdvl")]([SubResource("Resource_woo44")])
+quest_check = true
+metadata/_custom_type_script = "uid://ncdlvu4ekb1x"
