@@ -162,6 +162,8 @@ func release_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
 
+func death():
+	GameManager.death(self)
 
 ## Checks if some Input Actions haven't been created.
 ## Disables functionality accordingly.

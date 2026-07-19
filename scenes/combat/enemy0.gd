@@ -65,6 +65,9 @@ func _physics_process(delta: float) -> void:
 		if is_on_wall() and not is_turning:
 			_turn_around()
 
+# Activation on death
+func death():
+	queue_free()
 
 # Right the enemy facing direction
 func _face_direction(dir: Vector3):
