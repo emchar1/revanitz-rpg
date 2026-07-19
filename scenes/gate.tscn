@@ -1,0 +1,93 @@
+[gd_scene format=4 uid="uid://67vb4etcn0lh"]
+
+[ext_resource type="PackedScene" uid="uid://88ogf2t1j82y" path="res://assets/models/jail.glb" id="1_xwxio"]
+[ext_resource type="Material" uid="uid://diuu05x0n56pr" path="res://materials/mine_atlas.tres" id="2_hudsw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ne5lp"]
+resource_name = "mine_atlas"
+cull_mode = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_w51p7"]
+_surfaces = [{
+"aabb": AABB(-0.031949524, -1.1456585, -0.036892135, 0.06389905, 2.291317, 0.07378427),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("BwAEAAgABwAAAAQACQAIAAQAAAAJAAQAAwAHAAgAAwAAAAcAAwAIAAIAAAAKAAkABgADAAIAAAADAAUABQADAAYAAAAFAAoACgABAAkACgAFAAEACAAJAAsACAALAAIACwAJAAEABgACAAsABQALAAEABQAGAAsA"),
+"lods": [0.14274533, PackedByteArray("AAAEAAIAAgAEAAEAAwAAAAIAAAAFAAQAAAADAAUABQABAAQABgADAAIABQADAAYABgACAAEABQAGAAEA"), 0.32375237, PackedByteArray("AAABAAIAAwACAAEAAwAAAAIAAAADAAEA")],
+"name": "mine_atlas",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("//8AAP8/AAD/f/////8AAAAA////PwAAAAAAAP8/AAD//////z8AAP9/AAD//wAAAAAAAP+/AAD/fwAAAAAAAP9///8AAAAA//////+/AAD//wAA/78AAAAA////vwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dhd1s"]
+resource_name = "jail_Cilindro_002"
+_surfaces = [{
+"aabb": AABB(-0.031949524, -1.1456585, -0.036892135, 0.06389905, 2.291317, 0.07378427),
+"attribute_data": PackedByteArray("O4T37f1+XJPAeVyTwHn37TuEXJP9fvftwHn37aFLN9HiVTfRwVAZ2hddGdr2VzfR9lcj1zhiN9H9fvft/X5ckzuEXJM7hPftwHlck+JVI9fBUELOoUsj1xddQs44YiPX"),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("DgAEAA8ADgAAAAQAAwAOAA8AAAAQAAQAAwAPAAIAAAARABAABgADAAIAEQABABAABgACABIAEQAFAAEABQAGABIABQASAAEAEwAUAAgAFAATABUAFQATAAkAFAAVAAcACwANABYADQALAAoACgALAAwADQAKABcA"),
+"lods": [0.14274533, PackedByteArray("AAAEAAIAAAAFAAQAAwAAAAIABQABAAQABgADAAIABQAGAAEABgACAAEABwAIAAkACgALAAwADQALAAoA"), 0.32375237, PackedByteArray("AAABAAIAAwACAAEAAwAAAAIAAAADAAEA")],
+"material": SubResource("StandardMaterial3D_ne5lp"),
+"name": "mine_atlas",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("//8AAP8/jR3/f/////+6mgAA////P40dAAAAAP8/jR3//////z+NHf9/AAD//7qaAAAAAP+/b68AAP///z+P2v//////P4/a/3//////upr/fwAA//9EZQAAAAD/P28lAAAAAP+/4U3//wAA/z9vJf9/AAAAALoa/3///wAAuhr//////79vr///AAD/v2+vAAD///+/b6///////78dsv9///8AAETlAAD///+/HbL/fwAAAAC6Gv//AAD/v+FNEgIsrP7//3/s/dJTLCztfdLTEYIAAP9/jEPfxuHuo7Bbz+Fu////fwAA/3+jMB2R4EP9qx0RW08AAP9//v//f3K8HznfRnI8H7mMwx68AVT///9/ANTfwwAA/3/+Kx88")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_w51p7")
+
+[node name="gate" unique_id=74981285 instance=ExtResource("1_xwxio")]
+
+[node name="bar" parent="." index="0" unique_id=373193741]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0.018125057, 1.1325374, 0)
+material_override = ExtResource("2_hudsw")
+
+[node name="bar2" type="MeshInstance3D" parent="." index="1" unique_id=1515533051]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, -0.30042338, 1.1325374, 0)
+material_override = ExtResource("2_hudsw")
+mesh = SubResource("ArrayMesh_dhd1s")
+
+[node name="bar3" type="MeshInstance3D" parent="." index="2" unique_id=903028438]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0.33066344, 1.1325374, 0)
+material_override = ExtResource("2_hudsw")
+mesh = SubResource("ArrayMesh_dhd1s")
+
+[node name="bar4" type="MeshInstance3D" parent="." index="3" unique_id=782669559]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, -0.6370032, 1.1325374, 0)
+material_override = ExtResource("2_hudsw")
+mesh = SubResource("ArrayMesh_dhd1s")
+
+[node name="bar5" type="MeshInstance3D" parent="." index="4" unique_id=1465961588]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0.66123295, 1.1325374, 0)
+material_override = ExtResource("2_hudsw")
+mesh = SubResource("ArrayMesh_dhd1s")
+
+[node name="bar6" type="MeshInstance3D" parent="." index="5" unique_id=1947915097]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, -0.9735825, 1.1325374, 0)
+material_override = ExtResource("2_hudsw")
+mesh = SubResource("ArrayMesh_dhd1s")
+
+[node name="bar7" type="MeshInstance3D" parent="." index="6" unique_id=1419595590]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0.9437196, 1.1325374, 0)
+material_override = ExtResource("2_hudsw")
+mesh = SubResource("ArrayMesh_dhd1s")
+
+[node name="bar8" type="MeshInstance3D" parent="." index="7" unique_id=601896735]
+transform = Transform3D(-0.013503845, -0.9999879, 0, 2.7449667, -0.0049194335, 0, 0, 0, 3.395, -0.0046157837, 1.1325374, 0)
+material_override = ExtResource("2_hudsw")
+mesh = SubResource("ArrayMesh_dhd1s")
+
+[node name="bar9" type="MeshInstance3D" parent="." index="8" unique_id=611101520]
+transform = Transform3D(-0.013503845, -0.9999879, 0, 2.7449667, -0.0049194335, 0, 0, 0, 3.395, -0.035194397, 0.19987452, 0)
+material_override = ExtResource("2_hudsw")
+mesh = SubResource("ArrayMesh_dhd1s")
+
+[node name="bar10" type="MeshInstance3D" parent="." index="9" unique_id=155369485]
+transform = Transform3D(-0.013503845, -0.9999879, 0, 2.7449667, -0.0049194335, 0, 0, 0, 3.395, -0.01990509, 2.0753932, 0)
+material_override = ExtResource("2_hudsw")
+mesh = SubResource("ArrayMesh_dhd1s")

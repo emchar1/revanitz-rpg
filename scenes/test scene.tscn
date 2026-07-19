@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://blwe6qhkt78fv" path="res://scenes/basic_spider.tscn" id="12_ujhr2"]
 [ext_resource type="Script" uid="uid://dt1f6q8rgyrt7" path="res://scripts/npc.gd" id="13_vqehb"]
 [ext_resource type="Resource" uid="uid://be1hr3gq12lvm" path="res://resources/NPCs/MinerNPC/Dialogues/0.tres" id="14_vqehb"]
+[ext_resource type="PackedScene" uid="uid://67vb4etcn0lh" path="res://scenes/gate.tscn" id="15_vqehb"]
 [ext_resource type="PackedScene" uid="uid://cgngl3qak4m0q" path="res://scenes/interaction.tscn" id="15_x67sd"]
 [ext_resource type="PackedScene" uid="uid://bj7yjw8fp0pnh" path="res://scenes/interactable_quest_obj.tscn" id="16_woo44"]
 
@@ -459,6 +460,9 @@ transform = Transform3D(-0.31838012, 0, 0.9479631, 0, 1, 0, -0.9479631, 0, -0.31
 
 [node name="torch5" parent="torches" unique_id=1997224281 instance=ExtResource("7_e0n0o")]
 transform = Transform3D(0.8972599, 0, 0.44150263, 0, 1, 0, -0.44150263, 0, 0.8972599, 38.4539, 1.3753233, -27.987656)
+
+[node name="gate" parent="." unique_id=74981285 instance=ExtResource("15_vqehb")]
+transform = Transform3D(0.31738448, 0, -0.94829684, 0, 1, 0, 0.94829684, 0, 0.31738448, 31.043613, 1.3754883, -22.729448)
 
 [editable path="weapon_part1"]
 [editable path="weapon_part2"]
