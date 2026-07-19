@@ -1,6 +1,7 @@
 extends Node3D
 
 var player = null
+var win_condition = false
 
 func _ready() -> void:
 	QuestManager.quest_completed.connect(weapon_get)
@@ -28,5 +29,6 @@ func weapon_get(quest_title : String):
 		player.hitbox.monitoring = true
 		
 func win():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	$CanvasLayer/Win.visible = true
+	if win_condition == true:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		$CanvasLayer/Win.visible = true

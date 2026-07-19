@@ -17,7 +17,7 @@ radius = 0.4
 height = 1.799414
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jwpuy"]
-size = Vector3(0.005859375, 1.3547668, 0.6205597)
+size = Vector3(0.005859375, 1.3547668, 0.7101822)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o3pdq"]
 radius = 0.4086914
@@ -136,7 +136,7 @@ monitoring = false
 script = ExtResource("2_epxtb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Camera3D/Hitbox" unique_id=1228507880]
-transform = Transform3D(1, 2.3283064e-09, -4.4703484e-08, -1.2572855e-08, 1, -1.8626451e-07, 0, 0, 1, -4.7683716e-07, 0.29479373, -0.075157166)
+transform = Transform3D(1, 2.3283064e-09, -4.4703484e-08, -1.2572855e-08, 1, -1.8626451e-07, 0, 0, 1, -4.7683716e-07, 0.29479373, -0.030346155)
 shape = SubResource("BoxShape3D_jwpuy")
 
 [node name="Weapon" type="Node3D" parent="Head/Camera3D" unique_id=1909220029]

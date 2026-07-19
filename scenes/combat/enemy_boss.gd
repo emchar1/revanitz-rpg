@@ -66,6 +66,7 @@ func _physics_process(delta: float) -> void:
 
 # Activation on death
 func death():
+	GameManager.win_condition = true
 	queue_free()
 
 # Right the enemy facing direction
