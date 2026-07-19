@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://djmbphwaudhnt"]
+
+[ext_resource type="Script" uid="uid://dpmu34ru658qm" path="res://scenes/respawn_button.gd" id="1_hodm5"]
+
+[node name="RespawnButton" type="Button" unique_id=1619546203]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Respawn"
+script = ExtResource("1_hodm5")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

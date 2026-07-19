@@ -23,7 +23,7 @@ class_name Player
 ## Normal speed.
 @export var base_speed : float = 7.0
 ## Speed of jump.
-@export var jump_velocity : float = 4.5
+@export var jump_velocity : float = 4.
 ## How fast do we run?
 @export var sprint_speed : float = 10.0
 ## How fast do we freefly?
@@ -62,6 +62,7 @@ func _ready() -> void:
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
 	
+	GameManager.player = self
 	add_to_group("player")
 
 func _unhandled_input(event: InputEvent) -> void:

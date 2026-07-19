@@ -345,9 +345,6 @@ volume_db = -12.123
 autoplay = true
 bus = &"Music"
 
-[node name="minerNPC" parent="." unique_id=497272761 instance=ExtResource("8_w62ak")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5401382, -0.4168613, -1.6681994)
-
 [node name="BattleGenerator" parent="." unique_id=1008706224 instance=ExtResource("11_lnp46")]
 transform = Transform3D(0.9528282, 0, 0.30351016, 0, 1, 0, -0.30351016, 0, 0.9528282, 48.91233, -0.9723091, -36.19093)
 
@@ -355,7 +352,7 @@ transform = Transform3D(0.9528282, 0, 0.30351016, 0, 1, 0, -0.30351016, 0, 0.952
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.80968, 4.5230246, -33.25405)
 
 [node name="minerNPC2" parent="." unique_id=213764564 instance=ExtResource("8_w62ak")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.874322, -0.44406822, -1.3768234)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08116436, -0.44406822, -1.3768234)
 
 [node name="NPC" type="CharacterBody3D" parent="minerNPC2" unique_id=805000087]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.845665, 0)
@@ -392,8 +389,6 @@ shape = SubResource("BoxShape3D_woo44")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.111285865, 0)
 mesh = SubResource("BoxMesh_v6m6b")
 
-[editable path="weapon_part1"]
-[editable path="weapon_part2"]
 [node name="torches" type="Node3D" parent="." unique_id=1103721167]
 
 [node name="torch" parent="torches" unique_id=49699114 instance=ExtResource("7_e0n0o")]
@@ -464,3 +459,6 @@ transform = Transform3D(-0.31838012, 0, 0.9479631, 0, 1, 0, -0.9479631, 0, -0.31
 
 [node name="torch5" parent="torches" unique_id=1997224281 instance=ExtResource("7_e0n0o")]
 transform = Transform3D(0.8972599, 0, 0.44150263, 0, 1, 0, -0.44150263, 0, 0.8972599, 38.4539, 1.3753233, -27.987656)
+
+[editable path="weapon_part1"]
+[editable path="weapon_part2"]

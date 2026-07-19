@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c5f4x2uys3sm0"]
 
 [ext_resource type="Script" uid="uid://b7mtindk5n64h" path="res://game_manager.gd" id="1_hwd4i"]
+[ext_resource type="PackedScene" uid="uid://djmbphwaudhnt" path="res://scenes/respawn_button.tscn" id="2_glms7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwd4i"]
 bg_color = Color(0.5132329, 0.51323295, 0.51323277, 1)
@@ -75,3 +76,10 @@ grow_vertical = 2
 theme_override_fonts/font = SubResource("SystemFont_udu3i")
 text = "You Died!"
 metadata/_edit_use_anchors_ = true
+
+[node name="RespawnButton" parent="CanvasLayer/DeathScreen" unique_id=1619546203 instance=ExtResource("2_glms7")]
+layout_mode = 0
+offset_left = 537.0
+offset_top = 351.0
+offset_right = 615.0
+offset_bottom = 382.0
