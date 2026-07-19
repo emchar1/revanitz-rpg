@@ -70,3 +70,9 @@ material_override = SubResource("StandardMaterial3D_cd40g")
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_h4t55")
 draw_pass_1 = SubResource("QuadMesh_4e15o")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torch" index="1" unique_id=977315778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.044146165, 0.385, 0.0008199833)
+light_color = Color(2.2963588, 1.0430326, 0, 1)
+light_bake_mode = 1
+omni_shadow_mode = 0
