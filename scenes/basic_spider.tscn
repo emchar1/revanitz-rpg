@@ -5,7 +5,8 @@
 
 [node name="Enemy0" unique_id=1563144817 instance=ExtResource("1_norgv")]
 
-[node name="spider" parent="." index="7" unique_id=368986641 instance=ExtResource("2_mit1k")]
+[node name="spider2" parent="." index="7" unique_id=368986641 instance=ExtResource("2_mit1k")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.8671087, 0)
 
 [editable path="Hurtbox"]
+[editable path="spider"]

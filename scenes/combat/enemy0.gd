@@ -27,6 +27,8 @@ func _physics_process(delta: float) -> void:
 		#print("No player, aborting...")
 		return
 	
+	if velocity.x > 0 or velocity.y > 0:
+		$spider/AnimationPlayer.play("walk")
 	# process gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -102,8 +104,15 @@ func _turn_around():
 
 func _on_hitbox_area_entered(area: Area3D) -> void:
 	if area is Hurtbox:
+		velocity.x = 0
+		velocity.y = 0
+		$spider/AnimationPlayer.play("basicAttack")
 		area.damage(damage_val)
 		area.hit()
+	
+func _on_hitbox_area_exited(area: Area3D) -> void:
+	$spider/AnimationPlayer.play("walk")
+		
 
 
 func _on_vision_cone_body_entered(body: Node3D) -> void:

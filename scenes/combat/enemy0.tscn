@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dgyxtymefpmdp" path="res://scenes/combat/enemy0.gd" id="1_erfbm"]
 [ext_resource type="PackedScene" uid="uid://q3pcmv4ggn0r" path="res://scenes/hurtbox.tscn" id="2_ev8rf"]
+[ext_resource type="PackedScene" uid="uid://cy0pe565mfxgk" path="res://scenes/basic_enemy.tscn" id="3_ev8rf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v6m6b"]
 
@@ -36,6 +37,7 @@ script = ExtResource("1_erfbm")
 shape = SubResource("CapsuleShape3D_v6m6b")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=400340340]
+visible = false
 material_override = SubResource("StandardMaterial3D_hxfvj")
 mesh = SubResource("CapsuleMesh_o3pdq")
 
@@ -64,6 +66,12 @@ shape = SubResource("CapsuleShape3D_jpsmn")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=446863670]
 
+[node name="spider" parent="." unique_id=368986641 instance=ExtResource("3_ev8rf")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.8671087, 0)
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_exited" from="Hitbox" to="." method="_on_hitbox_area_exited"]
 [connection signal="body_entered" from="VisionCone" to="." method="_on_vision_cone_body_entered"]
 [connection signal="body_exited" from="VisionCone" to="." method="_on_vision_cone_body_exited"]
+
+[editable path="spider"]
