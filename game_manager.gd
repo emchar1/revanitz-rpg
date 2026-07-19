@@ -26,3 +26,7 @@ func weapon_get(quest_title : String):
 	if quest_title == "Find Weapon Parts":
 		player.weapon.visible = true
 		player.hitbox.monitoring = true
+		
+func win():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$CanvasLayer/Win.visible = true

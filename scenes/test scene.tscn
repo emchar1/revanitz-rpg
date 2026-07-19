@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bj7yjw8fp0pnh" path="res://scenes/interactable_quest_obj.tscn" id="16_woo44"]
 [ext_resource type="Script" uid="uid://c55m0sto1eety" path="res://scripts/hurtbox.gd" id="16_x67sd"]
 [ext_resource type="PackedScene" uid="uid://cl5xaccoaadqj" path="res://scenes/elevator.tscn" id="18_tiq5k"]
+[ext_resource type="Script" uid="uid://boi0l4yla6klk" path="res://scenes/elevator.gd" id="19_s172t"]
 
 [sub_resource type="Environment" id="Environment_ethpd"]
 background_mode = 1
@@ -74,6 +75,9 @@ size = Vector3(2.1640625, 2.0761719, 0.26953125)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tiq5k"]
 size = Vector3(2.0595703, 1.6074219, 0.19433594)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o3pdq"]
+size = Vector3(2.1741943, 5.4941406, 2.6208496)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s172t"]
 size = Vector3(2.9746094, 2.211914, 0.26953125)
@@ -472,9 +476,18 @@ shape = SubResource("BoxShape3D_tiq5k")
 
 [node name="elevator" parent="." unique_id=1245370536 instance=ExtResource("18_tiq5k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4345465, 3.4185724, -30.116991)
+script = ExtResource("19_s172t")
+
+[node name="Interaction" parent="elevator" unique_id=72071316 instance=ExtResource("15_x67sd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30728912, 0.28780365, -0.4579277)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="elevator/Interaction" unique_id=465360283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22039795, 0, 0)
+shape = SubResource("BoxShape3D_o3pdq")
 
 [node name="Gate2" type="CharacterBody3D" parent="." unique_id=304485263]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.352567, 3.1384559, -28.258892)
+script = ExtResource("16_tiq5k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Gate2" unique_id=1791585997]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1967945, 0)
